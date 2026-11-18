@@ -231,7 +231,7 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-18.3";
+const VER="2026-11-18.4";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
@@ -354,10 +354,10 @@ function renderDay(){
  $("#mh").textContent="今日筆記本"+(notes.length?"（"+notes.filter(x=>x.done).length+"/"+notes.length+"）":"");
  const m=$("#mlist");m.innerHTML="";[...notes].sort((a,b)=>pinCmp(a,b)||a.done-b.done).forEach(x=>m.appendChild(lrow(x,"mt")));
  let b="";const days=Math.floor((Date.now()-ST.lastBackup)/864e5);
- if((S.ev.length+S.td.length)>0&&(!ST.lastBackup||days>=7))b+=`<div class="banner"><span>🗂 ${ST.lastBackup?"已 "+days+" 天沒備份":"還沒備份過"}，資料只存在這台裝置</span><button class="pri" id="bn-bk">備份</button></div>`;
+ if((S.ev.length+S.td.length)>0&&(!ST.lastBackup||days>=7)&&!ST.bkOff&&Date.now()>(ST.bkSnooze||0))b+=`<div class="banner" style="flex-wrap:wrap"><span>🗂 ${ST.lastBackup?"已 "+days+" 天沒備份":"還沒備份過"}，資料只存在這台裝置</span><button class="pri" id="bn-bk">備份</button><button id="bn-bk-l">稍後</button><button id="bn-bk-n">不再提醒</button></div>`;
  if(newVer)b+=`<div class="banner"><span>✨ 有新版本</span><button class="pri" id="bn-up">立即更新</button></div>`;
  $("#banners").innerHTML=b;
- const bk=$("#bn-bk");if(bk)bk.onclick=doBackup;const up=$("#bn-up");if(up)up.onclick=applyUpdate;
+ const bk=$("#bn-bk");if(bk)bk.onclick=doBackup;const bl=$("#bn-bk-l");if(bl)bl.onclick=()=>{ST.bkSnooze=Date.now()+7*864e5;saveST();renderDay()};const bn=$("#bn-bk-n");if(bn)bn.onclick=()=>{ST.bkOff=1;saveST();renderDay();note("好，不再提醒。想備份時到 ⚙️ 設定按「備份」",4500)};const up=$("#bn-up");if(up)up.onclick=applyUpdate;
 }
 function renderTodos(){
  const t=today(),op=S.td.filter(x=>!x.done),box=$("#tl");box.innerHTML="";
@@ -581,7 +581,7 @@ function openSettings(){
  $("#s-ics").onclick=async()=>{if(!S.ev.length){note("還沒有行程");return}const ok=await outFile("行事曆.ics",icsWrap(S.ev),"text/calendar");if(ok)note("存到「檔案」後點開，再按「加入全部」",6000)};
  $("#s-loc").onclick=async()=>{try{await getPos();$("#s-lm").textContent="✅ 位置可用"}catch(err){$("#s-lm").textContent=geoMsg(err)}};
  const refresh=async()=>{const i=await storageInfo();$("#s-st").textContent="已用 "+(i.u||"無法讀取")+(i.p?" · "+i.p:"")};refresh();
- $("#s-pe").onclick=async()=>{const ok=await persist();note(ok?"已開啟資料保護":"Safari 沒有同意（把網站加到主畫面通常就會受保護）",4500);refresh()};
+ $("#s-pe").onclick=async()=>{ST.pe=1;saveST();const ok=await persist();note(ok?"已開啟資料保護":"Safari 沒有同意（把網站加到主畫面通常就會受保護）",4500);refresh()};
  $("#s-up").onclick=()=>checkUpdate(true);$("#s-ob").onclick=()=>{closePanel();showOnboard()};
 }
 $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=openHistory;$("#b-set").onclick=openSettings;
@@ -594,12 +594,14 @@ function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").c
 function showOnboard(){
  const o=$("#ob");
  o.innerHTML=`<div class="sheet"><div class="shh"><b>${nj()?"🥷 歡迎，先設定兩件事":"歡迎使用，先設定兩件事"}</b></div>
- <div class="card sg"><b>① 位置（用 Google 地圖）</b><div class="mut">行程可以記下地點，並在 Google 地圖開啟。按下面按鈕後，Safari 會問你是否允許，請選「允許」。</div><button id="ob-loc">允許使用位置</button><div class="mut" id="ob-lm"></div><div class="mut">之後想改，請到 iPad「設定 → 隱私權與安全性 → 定位服務 → Safari 網站」調整。</div></div>
- <div class="card sg"><b>② 資料保護</b><div class="mut">行程只存在這台裝置。建議加到主畫面使用，並到「設定」定期備份。</div><button id="ob-pe">開啟資料保護</button><div class="mut" id="ob-pm"></div></div>
- <button class="pri" id="ob-go">開始使用</button></div>`;
+ <div class="card sg"><b>① 位置（用 Google 地圖）</b><div class="mut">行程可以記下地點，並在 Google 地圖開啟。想用再按「允許」，Safari 會問你；不想用可以按「略過」，其他功能照常使用，之後想開再到設定。</div><div class="two"><button id="ob-loc-no">略過</button><button id="ob-loc">允許使用位置</button></div><div class="mut" id="ob-lm"></div><div class="mut">之後想改，請到 iPad「設定 → 隱私權與安全性 → 定位服務 → Safari 網站」調整。</div></div>
+ <div class="card sg"><b>② 資料保護</b><div class="mut">行程只存在這台裝置。建議加到主畫面使用，並到「設定」定期備份。</div><div class="two"><button id="ob-pe-no">略過</button><button id="ob-pe">開啟資料保護</button></div><div class="mut" id="ob-pm"></div></div>
+ <button class="pri" id="ob-go">開始使用</button><div class="mut" style="text-align:center">兩項都不是必要的，略過也能正常使用。</div></div>`;
  o.classList.remove("hide");
  $("#ob-loc").onclick=async()=>{try{await getPos();$("#ob-lm").textContent="✅ 已允許"}catch(err){$("#ob-lm").textContent=geoMsg(err)}};
- $("#ob-pe").onclick=async()=>{$("#ob-pm").textContent=(await persist())?"✅ 已開啟":"Safari 這次沒有同意，加到主畫面後通常就會受保護"};
+ $("#ob-loc-no").onclick=()=>{$("#ob-lm").textContent="已略過，要用時按行程裡的 📍 或到設定開啟";$("#ob-loc").classList.add("hide");$("#ob-loc-no").classList.add("hide")};
+ $("#ob-pe").onclick=async()=>{ST.pe=1;saveST();$("#ob-pm").textContent=(await persist())?"✅ 已開啟":"Safari 這次沒有同意，加到主畫面後通常就會受保護"};
+ $("#ob-pe-no").onclick=()=>{$("#ob-pm").textContent="已略過，之後可在「設定」開啟";$("#ob-pe").classList.add("hide");$("#ob-pe-no").classList.add("hide")};
  $("#ob-go").onclick=()=>{ST.onboard=1;saveST();o.classList.add("hide");o.innerHTML=""};
 }
 
@@ -635,6 +637,6 @@ applyStyle();
 setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
-if(ST.onboard&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
+if(ST.onboard&&ST.pe&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
 if(/^https?:/.test(location.protocol))setTimeout(()=>checkUpdate(false),1500);
 </script></body></html>
