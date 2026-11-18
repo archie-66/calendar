@@ -145,7 +145,7 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 .th{position:relative;width:72px;height:72px;border-radius:12px;overflow:hidden;background:var(--bd)}
 .th img,.th video{width:100%;height:100%;object-fit:cover}
 .th button{position:absolute;top:2px;right:2px;padding:0 6px;border-radius:10px;font-size:12px;background:#0007;color:#fff;border:0}
-#f-map iframe{width:100%;height:190px;border:0;border-radius:12px}
+.mapgo{text-decoration:none}
 #lb{position:fixed;inset:0;background:#000d;display:flex;align-items:center;justify-content:center;z-index:40}
 #lb img,#lb video{max-width:100%;max-height:100%}
 #act{position:fixed;inset:0;background:#0007;display:flex;align-items:flex-end;justify-content:center;z-index:30}
@@ -231,7 +231,7 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-18.4";
+const VER="2026-11-18.5";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
@@ -449,9 +449,11 @@ async function revGeo(lat,lng){try{const r=await fetch(`https://nominatim.openst
 $("#f-loc").addEventListener("input",()=>{if(loc.lat!=null&&$("#f-loc").value!==loc.auto){delete loc.lat;delete loc.lng;$("#f-gps").textContent="📍"}});
 $("#f-gps").onclick=async()=>{const b=$("#f-gps"),g=$("#f-gmsg");g.textContent="";b.textContent="…";b.disabled=true;
  try{const p=await getPos();loc.lat=+p.coords.latitude.toFixed(5);loc.lng=+p.coords.longitude.toFixed(5);g.textContent="已取得座標，正在查地名…";const nm=await revGeo(loc.lat,loc.lng);if(!$("#f-loc").value.trim()||$("#f-loc").value===loc.auto){$("#f-loc").value=nm||"目前位置"}loc.auto=$("#f-loc").value;b.textContent="📍✓";g.textContent="已記下目前位置，點 🗺️ 可在 Google 地圖查看"}catch(err){b.textContent="📍";g.textContent=geoMsg(err)}b.disabled=false};
-$("#f-gm").onclick=()=>{const nm=$("#f-loc").value.trim();if(!nm&&loc.lat==null){$("#f-gmsg").textContent="請先輸入地點名稱，或按 📍 取得目前位置";return}
- const q=loc.lat!=null?loc.lat+","+loc.lng:nm,box=$("#f-map");
- box.innerHTML=`<iframe loading="lazy" referrerpolicy="no-referrer" src="https://maps.google.com/maps?q=${encodeURIComponent(q)}&hl=zh-TW&output=embed"></iframe><div class="mut" style="margin-top:4px"><a href="${mapUrl({name:nm,lat:loc.lat,lng:loc.lng})}" target="_blank" rel="noopener">在 Google 地圖 App／網頁開啟 ↗</a></div>`;box.classList.remove("hide")};
+$("#f-gm").onclick=()=>{const nm=$("#f-loc").value.trim(),g=$("#f-gmsg");if(!nm&&loc.lat==null){g.textContent="請先輸入地點名稱，或按 📍 取得目前位置";return}
+ const u=mapUrl({name:nm,lat:loc.lat,lng:loc.lng}),box=$("#f-map");
+ box.innerHTML=`<div class="card sg"><div class="mut">${esc(nm||"目前位置")}</div><a class="mapgo" href="${u}" target="_blank" rel="noopener"><button class="pri" style="width:100%">🗺️ 在 Google 地圖打開</button></a></div>`;box.classList.remove("hide");
+ g.textContent="正在打開 Google 地圖…（如果沒有跳出，請按下方按鈕）";
+ const a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove()};
 function collect(){
  const title=$("#f-title").value.trim(),date=$("#f-date").value;if(!title||!date){$("#f-title").focus();return null}
  const single=editing&&editing.rep&&scope===0,rep=single?"":$("#f-rep").value,nm=$("#f-loc").value.trim(),time=$("#f-time").value;
