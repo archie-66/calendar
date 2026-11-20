@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="行事曆">
 <meta name="theme-color" content="#f4f1ea" id="tc">
-<script>try{var s=JSON.parse(localStorage.getItem("cal_set")||"{}").style;if(s)document.documentElement.dataset.style=s}catch(e){}</script>
+<script>try{var s=JSON.parse(localStorage.getItem("cal_set")||"{}").style;if(s==="gojo")s="azure";if(s)document.documentElement.dataset.style=s}catch(e){}</script>
 <style>
 :root{color-scheme:light dark;--bg:#f4f1ea;--sheet:#fffdf9;--g1:#f4f1ea;--g2:#f4f1ea;--g3:#f4f1ea;--card:#fffdf9;--tx:#22242a;--mut:#7a7a82;--bd:#e8e2d6;--sh:0 1px 0 rgba(0,0,0,.02),0 8px 24px -16px rgba(0,0,0,.15);--ac:#3e63dd;--acon:#fff;--on:#22242a;--warn:#e0384b;--c0:#b9c7f5;--c1:#f4b6bd;--c2:#a9dcc0;--c3:#f0d9a0;--r:20px;--rr:16px;--hf:inherit}
 @media (prefers-color-scheme:dark){:root{--bg:#131418;--sheet:#1d1f25;--g1:#131418;--g2:#131418;--g3:#131418;--card:#1d1f25;--tx:#f1f1f4;--mut:#9b9ba5;--bd:#2b2e36;--sh:0 8px 24px -16px rgba(0,0,0,.7);--ac:#8aa2ff;--acon:#131418;--warn:#ff5d70}}
@@ -130,26 +130,6 @@ html[data-style="ninja"] #ind{border-radius:7px}
 .fab span{position:relative}
 html[data-style="ninja"] .fab .shk{display:block}
 html[data-style="jjk"]{color-scheme:dark;--bg:#0a0a15;--sheet:#14142b;--g1:#0a0a15;--g2:#0e0b22;--g3:#0a0a15;--card:#12122a;--tx:#ecebff;--mut:#9d9bc9;--bd:#2b2b52;--sh:0 0 0 1px rgba(124,107,255,.14),0 12px 30px -16px rgba(96,72,255,.55);--ac:#7c6bff;--acon:#fff;--on:#0a0a15;--warn:#ff4d6d;--c0:#8fa0ff;--c1:#ff7a96;--c2:#6fe0c0;--c3:#ffd27a;--r:4px;--rr:3px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
-html[data-style="gojo"]{color-scheme:dark;--bg:#071326;--sheet:#101d35;--g1:#071326;--g2:#10152e;--g3:#080b19;--card:#101b32;--tx:#eef5ff;--mut:#9bb2d4;--bd:#263d61;--sh:0 0 0 1px rgba(83,160,255,.18),0 12px 34px -16px rgba(74,112,255,.55);--ac:#67a9ff;--acon:#071326;--on:#071326;--warn:#ff557d;--c0:#72b8ff;--c1:#ff779b;--c2:#8ee8df;--c3:#c5a5ff;--r:10px;--rr:7px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
-html[data-style="gojo"] body{background:#040611}
-html[data-style="gojo"] body::before{content:"";position:fixed;inset:-18%;pointer-events:none;z-index:0;background:
-radial-gradient(ellipse at 50% 48%,rgba(126,112,255,.22),transparent 18%),
-radial-gradient(ellipse at 50% 48%,transparent 0 20%,rgba(88,139,255,.12) 20.2% 20.4%,transparent 20.8% 29%,rgba(162,111,255,.10) 29.2% 29.4%,transparent 29.8% 39%,rgba(103,146,255,.08) 39.2% 39.4%,transparent 40%),
-repeating-radial-gradient(ellipse at 50% 48%,rgba(160,185,255,.09) 0 1px,transparent 1px 42px),
-conic-gradient(from 18deg at 50% 48%,transparent 0 24deg,rgba(92,130,255,.13) 26deg,transparent 34deg 78deg,rgba(175,118,255,.12) 82deg,transparent 91deg 154deg,rgba(97,170,255,.12) 158deg,transparent 168deg 250deg,rgba(176,110,255,.1) 254deg,transparent 264deg),
-radial-gradient(ellipse at 50% 50%,#17234b 0%,#0b1028 45%,#040611 78%);background-size:100% 100%;animation:domainDrift 34s linear infinite alternate}
-html[data-style="gojo"] body::after{content:"無量空處";position:fixed;right:-.04em;bottom:58px;font:900 clamp(56px,13vw,160px)/1 var(--hf);letter-spacing:.16em;color:#a6b8ff;opacity:.055;pointer-events:none;z-index:0;writing-mode:vertical-rl;text-shadow:0 0 36px #6f78ff}
-@keyframes domainDrift{0%{filter:hue-rotate(0deg) brightness(.85);background-position:0 0}100%{filter:hue-rotate(22deg) brightness(1.15);background-position:2% -1%}}
-
-/* The domain watermark is defined once by the Unlimited Void rule above. */
-@keyframes gojoPulse{50%{opacity:.14;text-shadow:0 0 35px #7d8dff}}
-html[data-style="gojo"] button,html[data-style="gojo"] .ib,html[data-style="gojo"] .ck,html[data-style="gojo"] .seg,html[data-style="gojo"] .day b,html[data-style="gojo"] .tlh .dh b,html[data-style="gojo"] input,html[data-style="gojo"] select,html[data-style="gojo"] textarea,html[data-style="gojo"] #ind{border-radius:8px}
-html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{background:linear-gradient(120deg,#398cff 0%,#8067ff 52%,#e94d8b 100%);border-color:transparent;box-shadow:0 0 20px rgba(93,139,255,.42)}
-html[data-style="gojo"] #ind{background:linear-gradient(120deg,#398cff,#8067ff 55%,#e94d8b);box-shadow:0 0 16px rgba(93,139,255,.5)}
-html[data-style="gojo"] .tabs{border-radius:10px;box-shadow:0 0 0 1px rgba(93,139,255,.25),0 10px 30px -10px rgba(72,112,255,.45)}
-html[data-style="gojo"] .sheet{border-radius:12px 12px 0 0;border-top:2px solid #67a9ff;box-shadow:0 -10px 40px -10px rgba(93,139,255,.4)}
-html[data-style="gojo"] h2::before{content:"";display:inline-block;width:4px;height:.9em;background:linear-gradient(#67c7ff,#a18aff,#ff779b);margin-right:8px;vertical-align:-1px;box-shadow:0 0 9px #758cff}
-html[data-style="gojo"] #splash{background:radial-gradient(ellipse at center,#17274c 0%,#090e20 58%,#060913 100%)}
 html[data-style="jjk"] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 88% 4%,rgba(124,107,255,.28),transparent 42%),radial-gradient(circle at 6% 96%,rgba(61,123,255,.2),transparent 45%),repeating-linear-gradient(115deg,transparent 0 38px,rgba(124,107,255,.045) 38px 39px)}
 html[data-style="jjk"] body::after{content:"呪";position:fixed;right:-12px;bottom:70px;font:900 220px/1 var(--hf);color:#7c6bff;opacity:.05;pointer-events:none;z-index:0}
 html[data-style="jjk"] button,html[data-style="jjk"] .ib,html[data-style="jjk"] .ck,html[data-style="jjk"] .seg,html[data-style="jjk"] .day b,html[data-style="jjk"] .tlh .dh b,html[data-style="jjk"] input,html[data-style="jjk"] select,html[data-style="jjk"] textarea,html[data-style="jjk"] #ind{border-radius:4px}
@@ -165,7 +145,7 @@ html[data-style="jjk"] .tc::after{content:"呪";position:absolute;right:8px;top:
 .ldr .lj::before{content:"";position:absolute;inset:-14%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 50%,#8fa0ff 85%,transparent 100%);-webkit-mask:radial-gradient(circle,transparent 60%,#000 62% 70%,transparent 72%);mask:radial-gradient(circle,transparent 60%,#000 62% 70%,transparent 72%);animation:spin 1.1s linear infinite}
 .ldr .lj::after{content:"呪";position:absolute;inset:0;display:grid;place-items:center;font:900 30px/1 var(--hf);color:#dfe3ff;text-shadow:0 0 12px #7c6bff;animation:flick 2.2s ease-in-out infinite}
 @keyframes flick{50%{opacity:.55;text-shadow:0 0 24px #a8b4ff}}
-html[data-style="jjk"] .ldr .ln{display:none}html[data-style="jjk"] .ldr .lj{display:block}
+html[data-style="jjk"] .ldr .ln,html[data-style="azure"] .ldr .ln{display:none}html[data-style="jjk"] .ldr .lj,html[data-style="azure"] .ldr .lj{display:block}
 #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;display:none}html[data-style="jjk"] #fx{display:block}
 html[data-style="jjk"] .card{background:linear-gradient(160deg,rgba(28,28,62,.92),rgba(15,15,36,.92));border:1px solid rgba(124,107,255,.24);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 14px 30px -18px rgba(90,70,255,.65);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 html[data-style="jjk"] .row{background:linear-gradient(160deg,rgba(28,28,62,.9),rgba(15,15,36,.9));border-color:rgba(124,107,255,.2);animation:rowin .3s both;transition:transform .15s,box-shadow .2s}
@@ -246,7 +226,7 @@ html[data-style="ninja"] #splash.off .ldr{animation:bursto .5s ease-in forwards}
 html[data-style="ninja"] .fab{border-radius:50%}
 .sig{display:none;width:min(82vw,380px);height:auto;color:#8fa0ff;filter:drop-shadow(0 0 8px #6a4dff);overflow:visible}
 html[data-style="jjk"] .sig{display:block}
-html[data-style="jjk"] #splash .ldr{display:none}
+html[data-style="jjk"] #splash .ldr,html[data-style="azure"] #splash .ldr{display:none}
 .sig g{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .sig .dr{stroke-dasharray:1;stroke-dashoffset:1;animation:sdraw 1s ease-out forwards}
 @keyframes sdraw{to{stroke-dashoffset:0}}
@@ -259,14 +239,14 @@ html[data-style="jjk"] #splash .ldr{display:none}
 @keyframes kin{from{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.15)}to{opacity:1;transform:scale(1)}}
 .sig .ry{stroke:#cfd6ff;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:ray .7s 1.45s ease-out both}
 @keyframes ray{0%{opacity:1;stroke-dashoffset:1}60%{opacity:1;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:-1}}
-html[data-style="jjk"] #splash b{opacity:0;animation:bin .8s 1.75s forwards;position:relative;z-index:2;margin-top:min(44vh,320px);color:#dfe3ff;text-shadow:0 0 14px #7c6bff}
-#sp{display:none;position:absolute;inset:0;width:100%;height:100%}html[data-style="jjk"] #sp{display:block}
-html[data-style="jjk"] #splash{transition:opacity .7s}
+html[data-style="jjk"] #splash b,html[data-style="azure"] #splash b{opacity:0;animation:bin .8s 1.75s forwards;position:relative;z-index:2;margin-top:min(44vh,320px);color:#dfe3ff;text-shadow:0 0 14px #7c6bff}
+#sp{display:none;position:absolute;inset:0;width:100%;height:100%}html[data-style="jjk"] #sp,html[data-style="azure"] #sp{display:block}
+html[data-style="jjk"] #splash,html[data-style="azure"] #splash{transition:opacity .7s}
 html.open #app{animation:appin .9s cubic-bezier(.2,.8,.2,1)}
 @keyframes appin{from{transform:scale(1.14);filter:blur(10px);opacity:.4}to{transform:none;filter:none;opacity:1}}
 @keyframes bin{from{opacity:0;letter-spacing:.9em}to{opacity:1;letter-spacing:.3em}}
 html[data-style="jjk"] #splash.off .sig{animation:bursto .5s ease-in forwards}
-html[data-style="jjk"] #splash{animation-delay:3.8s}
+html[data-style="jjk"] #splash,html[data-style="azure"] #splash{animation-delay:3.8s}
 .nin{display:none;width:min(78vw,340px);height:auto;overflow:visible;animation:nshake .3s 1.05s}
 html[data-style="ninja"] .nin{display:block}
 html[data-style="ninja"] #splash .ldr{display:none}
@@ -292,6 +272,53 @@ html[data-style="ninja"] #splash{animation-delay:3.4s}
 html[data-style="ninja"] .sm{display:block}
 @keyframes smk{0%{opacity:0;transform:translate(var(--x),var(--y)) scale(.3)}35%{opacity:.95}100%{opacity:0;transform:translate(calc(var(--x)*2.2),calc(var(--y)*2.2)) scale(2.8)}}
 .acttl{white-space:pre-line;text-align:left}
+/* 蒼穹風格（原創藍色系） */
+html[data-style="azure"]{color-scheme:dark;--bg:#06101f;--sheet:#0f1d36;--g1:#06101f;--g2:#081428;--g3:#06101f;--card:#0e1b34;--tx:#eaf4ff;--mut:#9ab4d6;--bd:#223e66;--sh:0 0 0 1px rgba(74,168,255,.14),0 12px 30px -16px rgba(47,123,255,.55);--ac:#4aa8ff;--acon:#fff;--on:#06101f;--warn:#ff5f7d;--c0:#8ad0ff;--c1:#ff7a96;--c2:#6fe0c0;--c3:#ffd27a;--r:4px;--rr:3px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
+html[data-style="azure"] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 88% 4%,rgba(74,168,255,.28),transparent 42%),radial-gradient(circle at 6% 96%,rgba(56,210,255,.2),transparent 45%),repeating-linear-gradient(115deg,transparent 0 38px,rgba(74,168,255,.045) 38px 39px)}
+html[data-style="azure"] body::after{content:"蒼";position:fixed;right:-12px;bottom:70px;font:900 220px/1 var(--hf);color:#4aa8ff;opacity:.05;pointer-events:none;z-index:0}
+html[data-style="azure"] button,html[data-style="azure"] .ib,html[data-style="azure"] .ck,html[data-style="azure"] .seg,html[data-style="azure"] .day b,html[data-style="azure"] .tlh .dh b,html[data-style="azure"] input,html[data-style="azure"] select,html[data-style="azure"] textarea,html[data-style="azure"] #ind{border-radius:4px}
+html[data-style="azure"] .pri,html[data-style="azure"] .fab{background:linear-gradient(135deg,#2f7bff,#38d2ff);border-color:transparent;box-shadow:0 0 18px rgba(47,123,255,.55)}
+html[data-style="azure"] .fab{border-radius:50%}
+html[data-style="azure"] #ind{background:linear-gradient(135deg,#2f7bff,#38d2ff);box-shadow:0 0 14px rgba(47,123,255,.6)}
+html[data-style="azure"] .tabs{border-radius:6px;box-shadow:0 0 0 1px rgba(74,168,255,.25),0 10px 30px -10px rgba(47,123,255,.5)}
+html[data-style="azure"] .sheet{border-radius:8px 8px 0 0;border-top:2px solid var(--ac);box-shadow:0 -10px 40px -10px rgba(47,123,255,.5)}
+html[data-style="azure"] h2::before{content:"";display:inline-block;width:4px;height:.9em;background:linear-gradient(#8ad0ff,#2f7bff);margin-right:8px;vertical-align:-1px;box-shadow:0 0 8px #4aa8ff}
+html[data-style="azure"] .hd h1{letter-spacing:.1em;text-shadow:0 0 18px rgba(74,168,255,.55)}
+html[data-style="azure"] .tc::after{content:"蒼";position:absolute;right:8px;top:-18px;font:900 96px/1 var(--hf);color:var(--ac);opacity:.14;pointer-events:none}
+html[data-style="azure"] .ldr .ln{display:none}html[data-style="azure"] .ldr .lj{display:block}
+html[data-style="azure"] .card{background:linear-gradient(160deg,rgba(20,40,80,.92),rgba(8,18,44,.92));border:1px solid rgba(74,168,255,.24);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 14px 30px -18px rgba(47,123,255,.65);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+html[data-style="azure"] .row{background:linear-gradient(160deg,rgba(20,40,80,.9),rgba(8,18,44,.9));border-color:rgba(74,168,255,.2);animation:rowin .3s both;transition:transform .15s,box-shadow .2s}
+html[data-style="azure"] .row:active{transform:scale(.985);box-shadow:0 0 18px rgba(74,168,255,.45)}
+html[data-style="azure"] #p0>.card,html[data-style="azure"] #p0 .tc,html[data-style="azure"] #p2>.card{animation:rise2 .55s cubic-bezier(.2,.8,.2,1) both}
+html[data-style="azure"] .hd h1{animation:glow 4.5s ease-in-out infinite}
+html[data-style="azure"] .day.today b{box-shadow:0 0 0 1px var(--ac),0 0 14px rgba(74,168,255,.7);animation:todaypulse 2.4s ease-in-out infinite}
+html[data-style="azure"] .day.sel b{background:linear-gradient(135deg,#2f7bff,#38d2ff);box-shadow:0 0 16px rgba(47,123,255,.85)}
+html[data-style="azure"] .fab::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#fff,transparent 35%,#8ad0ff 60%,transparent 85%,#fff);-webkit-mask:radial-gradient(circle,transparent 58%,#000 62%);mask:radial-gradient(circle,transparent 58%,#000 62%);animation:spin 3s linear infinite;opacity:.85}
+html[data-style="azure"] .fab{animation:fabp 2.8s ease-in-out infinite}
+html[data-style="azure"] .ck.on{box-shadow:0 0 14px var(--ac)}
+html[data-style="azure"] .tc::after{animation:kfloat 7s ease-in-out infinite}
+html[data-style="azure"] body::after{animation:kpulse 6s ease-in-out infinite}
+html[data-style="azure"] body::before{animation:aur 14s ease-in-out infinite alternate}
+html[data-style="azure"] .ldr::before{display:block}
+html[data-style="azure"] #splash.off .ldr{animation:bursto .5s ease-in forwards}
+html[data-style="azure"] .two>button,html[data-style="azure"] .three>button,html[data-style="azure"] .sg button,html[data-style="azure"] .actbox button,html[data-style="azure"] .banner button,html[data-style="azure"] .ib,html[data-style="azure"] #tod,html[data-style="azure"] #prev,html[data-style="azure"] #next,html[data-style="azure"] #f-add,html[data-style="azure"] #d-top{position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(30,70,128,.95),rgba(12,30,66,.95));border:1px solid rgba(150,205,255,.45);color:#e3f1ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 14px -4px rgba(74,168,255,.7);text-shadow:0 0 8px rgba(170,215,255,.6);letter-spacing:.04em;transition:transform .15s,box-shadow .2s,border-color .2s}
+html[data-style="azure"] .two>button:active,html[data-style="azure"] .three>button:active,html[data-style="azure"] .sg button:active,html[data-style="azure"] .actbox button:active,html[data-style="azure"] .banner button:active,html[data-style="azure"] .ib:active,html[data-style="azure"] #tod:active,html[data-style="azure"] #prev:active,html[data-style="azure"] #next:active,html[data-style="azure"] #f-add:active,html[data-style="azure"] #d-top:active{transform:scale(.94);border-color:#bfe2ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 0 26px rgba(150,205,255,.9)}
+html[data-style="azure"] .two>button::after,html[data-style="azure"] .three>button::after,html[data-style="azure"] .sg button::after,html[data-style="azure"] .actbox button::after,html[data-style="azure"] .banner button::after,html[data-style="azure"] .ib::after,html[data-style="azure"] #tod::after,html[data-style="azure"] #prev::after,html[data-style="azure"] #next::after,html[data-style="azure"] #f-add::after,html[data-style="azure"] #d-top::after,html[data-style="azure"] button.pri:not(.fab)::after,html[data-style="ninja"] button.pri:not(.fab)::after,html[data-style="ninja"] .two>button::after,html[data-style="ninja"] .three>button::after,html[data-style="ninja"] .sg button::after,html[data-style="ninja"] .actbox button::after,html[data-style="ninja"] .banner button::after,html[data-style="ninja"] .ib::after,html[data-style="ninja"] #tod::after,html[data-style="ninja"] #prev::after,html[data-style="ninja"] #next::after,html[data-style="ninja"] #f-add::after,html[data-style="ninja"] #d-top::after{content:"";position:absolute;top:-10%;left:-70%;width:45%;height:120%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-22deg);pointer-events:none}
+html[data-style="azure"] .two>button:active::after,html[data-style="azure"] .three>button:active::after,html[data-style="azure"] .sg button:active::after,html[data-style="azure"] .actbox button:active::after,html[data-style="azure"] .banner button:active::after,html[data-style="azure"] .ib:active::after,html[data-style="azure"] #tod:active::after,html[data-style="azure"] #prev:active::after,html[data-style="azure"] #next:active::after,html[data-style="azure"] #f-add:active::after,html[data-style="azure"] #d-top:active::after,html[data-style="ninja"] .two>button:active::after,html[data-style="ninja"] .three>button:active::after,html[data-style="ninja"] .sg button:active::after,html[data-style="ninja"] .actbox button:active::after,html[data-style="ninja"] .banner button:active::after,html[data-style="ninja"] .ib:active::after,html[data-style="ninja"] #tod:active::after,html[data-style="ninja"] #prev:active::after,html[data-style="ninja"] #next:active::after,html[data-style="ninja"] #f-add:active::after,html[data-style="ninja"] #d-top:active::after{animation:sweep .55s}
+html[data-style="azure"] button.pri:not(.fab),html[data-style="ninja"] button.pri:not(.fab){position:relative;overflow:hidden}
+html[data-style="azure"] button.pri:not(.fab)::after,html[data-style="ninja"] button.pri:not(.fab)::after{animation:sweep 4.2s ease-in-out infinite}
+html[data-style="azure"] button.pri:not(.fab){background:linear-gradient(120deg,#1f63f0,#38d2ff,#4a8dff,#38d2ff,#1f63f0);background-size:300% 100%;animation:grad 6s linear infinite;border:1px solid rgba(200,230,255,.7);box-shadow:0 0 22px rgba(47,123,255,.75),inset 0 1px 0 rgba(255,255,255,.5);text-shadow:0 0 10px rgba(255,255,255,.7);font-weight:700;letter-spacing:.08em;color:#fff;transition:transform .15s,box-shadow .2s}
+html[data-style="azure"] button.pri:not(.fab):active{transform:scale(.94);box-shadow:0 0 34px rgba(160,175,255,1),inset 0 1px 0 rgba(255,255,255,.6)}
+html[data-style="azure"] .seg{border:1px solid rgba(150,205,255,.3);box-shadow:0 0 14px -6px rgba(74,168,255,.7)}
+html[data-style="azure"] .seg button.on{background:linear-gradient(135deg,#2f7bff,#38d2ff);color:#fff;box-shadow:0 0 14px rgba(47,123,255,.8);text-shadow:0 0 8px rgba(255,255,255,.7)}
+html[data-style="azure"] .cats button.on{box-shadow:0 0 14px rgba(255,255,255,.3)}
+html[data-style="azure"] button.dg{color:#ff8aa0;border-color:rgba(255,95,125,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 14px -4px rgba(255,95,125,.85);text-shadow:0 0 8px rgba(255,95,125,.6)}
+html[data-style="azure"] .sig{display:block}
+html[data-style="azure"] #splash .ldr{display:none}
+html[data-style="azure"] #splash b{opacity:0;animation:bin .8s 1.75s forwards;position:relative;z-index:2;margin-top:min(44vh,320px);color:#e6f4ff;text-shadow:0 0 14px #4aa8ff}
+html[data-style="azure"] #splash{transition:opacity .7s}
+html[data-style="azure"] #splash.off .sig{animation:bursto .5s ease-in forwards}
+html[data-style="azure"] #splash{animation-delay:3.8s}
 .hide{display:none!important}
 .ovl{position:fixed;inset:0;background:#0007;display:flex;align-items:flex-end;justify-content:center}
 #ov{z-index:9}#dlg{z-index:10}#ob{z-index:14}
@@ -329,73 +356,10 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 .stat b{display:block;font-size:22px;font-family:var(--hf)}
 .sg{display:grid;gap:8px}
 .sg .mut{margin:2px 0 0}
-
-/* 五條悟專屬星海背景與按鍵特效 */
-html[data-style="gojo"] body{background:radial-gradient(ellipse at 50% -15%,#183c70 0%,#09162e 42%,#050914 100%)}
-html[data-style="gojo"] body::before{background:radial-gradient(ellipse at 18% 18%,rgba(42,143,255,.24),transparent 38%),radial-gradient(ellipse at 84% 78%,rgba(176,55,255,.22),transparent 40%),repeating-radial-gradient(circle at 50% 50%,transparent 0 58px,rgba(132,176,255,.035) 59px 60px)}
-html[data-style="gojo"] body::after{content:"無下限";right:-20px;bottom:74px;font:900 clamp(100px,22vw,230px)/1 var(--hf);color:#8bc4ff;opacity:.055;text-shadow:0 0 45px #8b72ff}
-html[data-style="gojo"] #splash{display:flex!important;visibility:visible!important;opacity:1;pointer-events:auto;background:radial-gradient(ellipse at 50% 48%,#172b55 0%,#080f24 48%,#02050d 100%);animation:none!important;overflow:hidden}
-html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{opacity:0}
-html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
-html[data-style="gojo"] #splash.off{transition:opacity .7s}
-html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{overflow:hidden;transition:transform .18s,filter .18s,box-shadow .18s}
-html[data-style="gojo"] .pri:active,html[data-style="gojo"] .fab:active{transform:scale(.96);filter:brightness(1.35);box-shadow:0 0 28px rgba(110,170,255,.8),0 0 42px rgba(190,90,255,.45)}
-.gojo-tap{position:fixed;width:20px;height:20px;margin:-10px;border:2px solid #f1f7ff;border-radius:50%;pointer-events:none;z-index:95;box-shadow:0 0 12px #fff,0 0 26px #62b9ff,0 0 48px #9b65ff;animation:gojoTap .82s cubic-bezier(.12,.7,.2,1) forwards}
-.gojo-tap:before,.gojo-tap:after{content:"";position:absolute;inset:-12px;border:2px solid rgba(125,193,255,.92);border-radius:50%;transform:scale(.2) rotate(0);animation:gojoOrbit .82s cubic-bezier(.16,.8,.2,1) forwards}
-.gojo-tap:after{inset:-23px;border-color:rgba(205,151,255,.9);border-style:dashed;animation:gojoOrbit 1.05s ease-out forwards reverse}
-.gojo-spark{position:fixed;width:7px;height:7px;margin:-3.5px;background:linear-gradient(135deg,#fff 0%,#9de7ff 42%,#b38aff 100%);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);pointer-events:none;z-index:95;filter:drop-shadow(0 0 5px #75caff);animation:gojoSpark .78s cubic-bezier(.12,.7,.2,1) forwards}
-@keyframes gojoTap{35%{transform:scale(1.5);opacity:1}to{transform:scale(4.5);opacity:0;border-color:#e6aaff}}
-@keyframes gojoOrbit{to{transform:scale(3.4) rotate(100deg);opacity:0}}
-@keyframes gojoSpark{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.05) rotate(160deg)}}
-@media(prefers-reduced-motion:reduce){html[data-style="gojo"] .gojo-tap,html[data-style="gojo"] .gojo-spark{animation-duration:.01ms!important}}
-
-/* Gojo / Unlimited Void interface layer */
-#gojo-hero,#gojo-copy{display:none}
-html[data-style="gojo"] #fx{display:block}
-html[data-style="gojo"] .card,html[data-style="gojo"] .row,html[data-style="gojo"] .sheet,html[data-style="gojo"] .tabs,html[data-style="gojo"] .banner,html[data-style="gojo"] .nt{background:linear-gradient(145deg,rgba(22,31,72,.84),rgba(7,12,34,.91));border-color:rgba(143,164,255,.22);box-shadow:inset 0 1px 0 rgba(221,232,255,.07),0 12px 34px -22px rgba(102,120,255,.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-html[data-style="gojo"] .hd h1{text-shadow:0 0 20px rgba(119,149,255,.6);letter-spacing:.08em}
-html[data-style="gojo"] .tabs{border:1px solid rgba(148,166,255,.3)}
-html[data-style="gojo"] .sheet{background:linear-gradient(160deg,rgba(19,28,65,.98),rgba(5,10,27,.98))}
-html[data-style="gojo"] .fab{right:20px!important;left:auto!important;bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
-html[data-style="gojo"] #splash{display:flex!important;visibility:visible!important;opacity:1;pointer-events:auto;background:radial-gradient(ellipse at 50% 50%,#1b285e 0%,#0b102c 52%,#02040c 100%);animation:none!important;overflow:hidden}
-html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{display:none!important}
-html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
-html[data-style="gojo"] #gojo-fallback{display:block;position:absolute;z-index:3;left:50%;top:45%;width:min(88vw,420px);height:70vh;transform:translate(-50%,-50%);filter:drop-shadow(0 0 28px rgba(104,143,255,.55))}html[data-style="gojo"] #gojo-fallback svg{width:100%;height:100%}
-html[data-style="gojo"] #gojo-character{display:block!important;position:absolute;z-index:4;left:50%;top:43%;width:min(94vw,500px);height:min(76vh,620px);transform:translate(-50%,-50%);opacity:0;animation:gojoCharacterEnter 1.25s cubic-bezier(.16,.82,.18,1) .18s forwards;filter:drop-shadow(0 0 26px rgba(110,153,255,.55));pointer-events:none}html[data-style="gojo"] #gojo-character svg{width:100%;height:100%;overflow:visible}@keyframes gojoCharacterEnter{0%{opacity:0;transform:translate(-50%,9%) scale(.78);filter:blur(14px)}65%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0)}}html[data-style="gojo"] #gojo-hero{display:none!important}
-html[data-style="gojo"] #gojo-hero{display:block!important;position:absolute;z-index:3;left:50%;top:45%;width:min(96vw,460px);height:auto;max-height:76vh;object-fit:contain;transform:translate(-50%,-50%);overflow:visible;filter:drop-shadow(0 0 24px rgba(104,143,255,.48));opacity:0;animation:gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards}
-html[data-style="gojo"] #gojo-copy{display:flex!important;position:absolute;z-index:4;left:0;right:0;bottom:max(5vh,30px);align-items:center;flex-direction:column;gap:5px;text-align:center;pointer-events:none;opacity:0;animation:gojoWords .75s ease-out 1.05s forwards}
-html[data-style="gojo"] #gojo-copy b{font:800 clamp(18px,4vw,28px)/1.2 var(--hf);letter-spacing:.38em;color:#b9d4ff;text-shadow:0 0 14px #668dff,0 0 32px #886bff}
-html[data-style="gojo"] #gojo-copy strong{font:900 clamp(28px,7vw,52px)/1.2 var(--hf);letter-spacing:.2em;color:#fff;text-shadow:0 0 16px #9db8ff,0 0 40px #876bff}
-html[data-style="gojo"] #gojo-copy i{font:700 clamp(15px,3.4vw,21px)/1.2 var(--hf);font-style:normal;letter-spacing:.3em;color:#d8c9ff;text-shadow:0 0 12px #a47aff;opacity:0;animation:gojoPurple .7s ease-out 3.8s forwards}
-@keyframes gojoPurple{from{opacity:0;transform:translateY(12px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-@keyframes gojoRise{0%{opacity:0;transform:translate(-50%,8%) scale(.78);filter:drop-shadow(0 0 0 transparent) blur(12px)}65%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:drop-shadow(0 0 24px rgba(104,143,255,.48))}}
-@keyframes gojoWords{from{opacity:0;transform:translateY(18px);letter-spacing:.8em}to{opacity:1;transform:none;letter-spacing:normal}}
-html[data-style="gojo"] #splash.off{opacity:0;transition:opacity .75s ease}
-html[data-style="gojo"] .fab{z-index:5}
-
-/* Gojo visual correction: use the actual artwork asset, never the temporary geometric SVG. */
-html[data-style="gojo"] #splash #gojo-character{display:none!important}
-html[data-style="gojo"] #splash #gojo-hero{display:block!important;visibility:visible!important;z-index:3!important;width:min(96vw,820px)!important;height:min(82vh,900px)!important;max-height:82vh!important;object-fit:contain!important;opacity:0;filter:drop-shadow(0 0 30px rgba(118,151,255,.72))}
-html[data-style="gojo"] #fx{display:block}
-html[data-style="gojo"] .fab{right:20px!important;left:auto!important;bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
-html[data-style="gojo"] .card,html[data-style="gojo"] .row,html[data-style="gojo"] .sheet{background-color:rgba(8,15,38,.78);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.gojo-click{position:fixed;z-index:9999;width:12px;height:12px;border:2px solid rgba(225,235,255,.95);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);animation:gojoClick .72s cubic-bezier(.12,.72,.2,1) forwards;box-shadow:0 0 16px #7ea8ff,0 0 34px #9b73ff}
-.gojo-click:before,.gojo-click:after{content:"";position:absolute;inset:-8px;border:1px solid rgba(137,177,255,.85);border-radius:50%;animation:gojoClickRing .72s ease-out forwards}
-.gojo-click:after{inset:-15px;border-color:rgba(185,126,255,.8);animation-delay:.06s}
-@keyframes gojoClick{0%{opacity:1;transform:translate(-50%,-50%) scale(.3)}45%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(2.4)}}
-@keyframes gojoClickRing{0%{opacity:.95;transform:scale(.25)}100%{opacity:0;transform:scale(4.2)}}
-
-/* Gojo visibility hard-fix: do not depend on the external WebP to show the character. */
-html[data-style="gojo"] #splash{animation:none!important;visibility:visible!important;opacity:1!important}
-html[data-style="gojo"] #splash #gojo-character{display:block!important;visibility:visible!important;opacity:1!important;z-index:4!important}
-html[data-style="gojo"] #splash #gojo-character svg{display:block!important;width:100%!important;height:100%!important}
-html[data-style="gojo"] #splash #gojo-hero{display:none!important}
-html[data-style="gojo"] #splash #gojo-fallback{display:none!important}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="shk" viewBox="0 0 24 24"><path d="M12 1l3.1 7.9L23 12l-7.9 3.1L12 23l-3.1-7.9L1 12l7.9-3.1z" fill="currentColor"/><circle cx="12" cy="12" r="2.4" fill="var(--sheet)"/></symbol></svg>
-<div id="splash"><svg class="nin" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="sun" cx="100" cy="100" r="62"/><g class="thr tr3"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr2"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr1"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr t0"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><circle class="imp" cx="100" cy="100" r="20"/><text class="kj2" x="100" y="128" text-anchor="middle" font-size="84" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">忍</text><g class="cuts"><line pathLength="1" x1="-10" y1="38" x2="210" y2="152"/><line pathLength="1" x1="-10" y1="152" x2="210" y2="48"/><line pathLength="1" x1="34" y1="-10" x2="168" y2="210"/></g></svg><i class="sm" style="--x:-60px;--y:10px;--d:0s"></i><i class="sm" style="--x:55px;--y:-15px;--d:0.05s"></i><i class="sm" style="--x:-20px;--y:40px;--d:0.1s"></i><i class="sm" style="--x:30px;--y:35px;--d:0.12s"></i><i class="sm" style="--x:-75px;--y:-30px;--d:0.15s"></i><i class="sm" style="--x:70px;--y:30px;--d:0.18s"></i><i class="sm" style="--x:0px;--y:-45px;--d:0.08s"></i><img id="gojo-hero" src="/calendar/assets/gojo.webp" alt="五條悟白髮、黑色眼罩，手中凝聚紫色能量的動畫風格插畫" decoding="async">
-<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
+<div id="splash"><svg class="nin" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="sun" cx="100" cy="100" r="62"/><g class="thr tr3"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr2"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr1"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr t0"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><circle class="imp" cx="100" cy="100" r="20"/><text class="kj2" x="100" y="128" text-anchor="middle" font-size="84" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">忍</text><g class="cuts"><line pathLength="1" x1="-10" y1="38" x2="210" y2="152"/><line pathLength="1" x1="-10" y1="152" x2="210" y2="48"/><line pathLength="1" x1="34" y1="-10" x2="168" y2="210"/></g></svg><i class="sm" style="--x:-60px;--y:10px;--d:0s"></i><i class="sm" style="--x:55px;--y:-15px;--d:0.05s"></i><i class="sm" style="--x:-20px;--y:40px;--d:0.1s"></i><i class="sm" style="--x:30px;--y:35px;--d:0.12s"></i><i class="sm" style="--x:-75px;--y:-30px;--d:0.15s"></i><i class="sm" style="--x:70px;--y:30px;--d:0.18s"></i><i class="sm" style="--x:0px;--y:-45px;--d:0.08s"></i><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
 <div id="upd" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b class="big">有新版本可以更新</b><p class="mut" id="upd-t"></p><div class="two"><button id="upd-no">稍後</button><button class="pri" id="upd-go">立即更新</button></div></div></div>
 <div id="busy" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><div id="busy-t"></div></div></div>
 <div id="app">
@@ -459,13 +423,14 @@ html[data-style="gojo"] #splash #gojo-fallback{display:none!important}
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-21.3";
+const VER="2026-11-21.4";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
 let S={ev:[],td:[],mt:[]},ST={style:"ninja",view:"m",onboard:0,lastBackup:0};
 try{Object.assign(S,JSON.parse(localStorage.getItem("cal1"))||{})}catch(e){}
 try{Object.assign(ST,JSON.parse(localStorage.getItem("cal_set"))||{})}catch(e){}
+if(ST.style==="gojo")ST.style="azure";
 S.ev=S.ev||[];S.td=S.td||[];S.mt=S.mt||[];
 const save=()=>{try{localStorage.setItem("cal1",JSON.stringify(S))}catch(e){note("儲存空間已滿，請先備份並清理",6000)}};
 const saveST=()=>{try{localStorage.setItem("cal_set",JSON.stringify(ST))}catch(e){}};
@@ -476,7 +441,8 @@ const diff=(a,b)=>Math.round((parse(b)-parse(a))/864e5);
 const weekStart=s=>addD(s,-parse(s).getDay());
 const toMin=t=>{const[h,m]=t.split(":").map(Number);return h*60+m};
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const nj=()=>ST.style==="ninja"||ST.style==="jjk";
+const isJ=()=>ST.style==="jjk"||ST.style==="azure";
+const nj=()=>ST.style==="ninja"||isJ();
 let cur=new Date(),sel=today(),curIdx=1,tlTop=Math.max(0,new Date().getHours()-1)*HH,dopen=false;cur.setDate(1);
 
 function note(msg,ms){const n=el("div","nt",`<span>${msg}</span><button aria-label="關閉">✕</button>`);n.querySelector("button").onclick=()=>n.remove();$("#notes").appendChild(n);if(ms!==0)setTimeout(()=>n.remove(),ms||3500);return n}
@@ -578,7 +544,7 @@ function renderDay(){
  $("#rmsg").textContent=!all?(nj()?"先寫下今天的第一個任務":"從一件小事開始吧"):done===all?(nj()?"任務完成，隱身收刀 🥷":"今天全部完成，真棒 🎉"):(nj()?"還剩 "+(all-done)+" 項，穩住":"還剩 "+(all-done)+" 件，慢慢來");
  $("#rnx").textContent=nx?"下一個："+nx.time+" "+nx.title:es.length?"今天的行程都結束了":"今天沒有行程";
  $("#rst").textContent=st?(nj()?`🔥 連續修行 ${st} 天`:`🔥 連續 ${st} 天有完成事項`):"";
- if(ST.style==="jjk"){["#hi","#rmsg"].forEach(q=>{$(q).textContent=$(q).textContent.replace(/🥷/g,"🌀")})}
+ if(isJ()){["#hi","#rmsg"].forEach(q=>{$(q).textContent=$(q).textContent.replace(/🥷/g,ST.style==="azure"?"💠":"🌀")})}
  const l=$("#dlist");l.innerHTML=es.length?"":`<div class="empty">${nj()?"今天風平浪靜 🍃":"今天沒有行程 ☁️"}</div>`;es.forEach(e=>l.appendChild(evRow(e,t)));
  $("#mh").textContent="今日筆記本"+(notes.length?"（"+notes.filter(x=>x.done).length+"/"+notes.length+"）":"");
  const m=$("#mlist");m.innerHTML="";[...notes].sort((a,b)=>pinCmp(a,b)||a.done-b.done).forEach(x=>m.appendChild(lrow(x,"mt")));
@@ -802,7 +768,7 @@ async function persist(){try{if(navigator.storage&&navigator.storage.persist)ret
 function openSettings(){
  const bk=ST.lastBackup?new Date(ST.lastBackup).toLocaleString("zh-TW",{hour12:false}):"還沒備份過";
  const pb=openPanel("設定",`
- <h2>外觀</h2><div class="seg" style="max-width:none"><button data-s="ninja">🥷 忍者</button><button data-s="jjk">🌀 咒術</button><button data-s="gojo">🟣 五條悟</button><button data-s="calm">🌿 柔和</button></div>
+ <h2>外觀</h2><div class="seg" style="max-width:none"><button data-s="ninja">🥷 忍者</button><button data-s="jjk">🌀 咒術</button><button data-s="azure">💠 蒼穹</button><button data-s="calm">🌿 柔和</button></div>
  <h2>安裝到手機</h2><div class="card sg"><div class="mut">${standalone()?"已安裝在這支手機上 ✓":"加到主畫面後，打開就像一般 App：全螢幕、有自己的圖示。"}</div><button id="s-inst">📲 ${standalone()?"已安裝":"安裝／查看步驟"}</button></div>
  <h2>備份</h2><div class="card sg"><div class="mut">上次備份：${bk}</div><div class="two"><button id="s-bk" class="pri">備份到檔案</button><button id="s-im">匯入備份</button></div><div class="mut">按「備份」會跳出分享選單，選「儲存到檔案」再選 iCloud Drive，換 iPad 時用「匯入備份」就能還原。照片會一起備份，影片太大不包含，請留相簿原檔。</div></div>
  <h2>提醒與 iOS 行事曆</h2><div class="card sg"><div class="mut">網頁版沒辦法在背景響鈴。把行程加進 iOS 行事曆，就會用系統的提醒。單一行程可在編輯畫面按「🔔 加到 iOS 行事曆」。</div><button id="s-ics">把全部行程匯出到 iOS 行事曆</button></div>
@@ -820,11 +786,8 @@ function openSettings(){
 $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=openHistory;$("#b-set").onclick=openSettings;
 
 /* ---------- style ---------- */
-function setStyle(s){ST.style=s;saveST();
-/* Gojo-only custom click burst; does not alter the calendar's existing handlers. */
-document.addEventListener("pointerdown",e=>{if(ST.style!=="gojo"||e.button!==0)return;const p=document.createElement("i");p.className="gojo-click";p.style.left=e.clientX+"px";p.style.top=e.clientY+"px";document.body.appendChild(p);p.addEventListener("animationend",()=>p.remove(),{once:true});});
-applyStyle();if(s==="gojo"){let sp=$("#splash");if(!sp){sp=document.createElement("div");sp.id="splash";document.body.appendChild(sp)}if(!sp.querySelector("#gojo-hero")){sp.innerHTML='<img id="gojo-hero" src="/calendar/assets/gojo.webp" alt="五條悟白髮、黑色眼罩，手中凝聚紫色能量的插畫" decoding="async"><div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div><canvas id="sp"></canvas>'}else if(!sp.querySelector("#sp")){const cv=document.createElement("canvas");cv.id="sp";sp.appendChild(cv)}sp.classList.remove("off");document.documentElement.classList.remove("open");gojoIntro()}}
-function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
+function setStyle(s){ST.style=s;saveST();applyStyle()}
+function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="azure"?"#06101f":ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
 
 /* ---------- 咒術開場：雙能量球融合爆開 ---------- */
 function jjkIntro(){
@@ -832,7 +795,7 @@ function jjkIntro(){
  const dpr=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
  cv.width=W*dpr;cv.height=H*dpr;
  const cx=W/2,cy=H*.46,R0=Math.min(W*.46,Math.max(260,H*.34)),k=Math.min(1.3,Math.max(.75,W/430));
- const TM=1.55,TOFF=1.95,TEND=3.1,TEAL=[84,128,255],AMB=[204,98,255],VIO=[140,108,255],WH=[255,255,255];
+ const az=ST.style==="azure",TM=1.55,TOFF=1.95,TEND=3.1,TEAL=az?[56,210,255]:[84,128,255],AMB=az?[110,140,255]:[204,98,255],VIO=az?[90,170,255]:[140,108,255],GL=az?"蒼":"呪",WH=[255,255,255];
  const col=(a,al)=>`rgba(${a[0]},${a[1]},${a[2]},${Math.max(0,Math.min(1,al))})`,rnd=(a,b)=>a+Math.random()*(b-a);
  const hist=[[],[]];let parts=[],boomed=false,off=false,t0=0,last=0;
  const rays=Array.from({length:40},(_,i)=>({a:i/40*6.2832+rnd(-.08,.08),l:rnd(.6,1.2),w:rnd(1,3)}));
@@ -861,137 +824,27 @@ function jjkIntro(){
     c.lineWidth=2.2*k;for(let m=0;m<3;m++){c.strokeStyle=col(C[i],.85);c.beginPath();c.arc(p[0],p[1],sz*1.55,t*9+m*2.094,t*9+m*2.094+1.25);c.stroke()}});
   }else{
    const a=t-TM;
-   if(!boomed){boomed=true;const pal=[TEAL,AMB,WH,VIO,WH];for(let i=0;i<190;i++){const p={x:cx,y:cy,rgb:pal[i%5],w:rnd(1,3.4)*k,life:rnd(.7,1.7)};const an=rnd(0,6.2832),v=rnd(160,1150)*k;p.vx=Math.cos(an)*v;p.vy=Math.sin(an)*v;p.max=p.life;parts.push(p)}}
+   if(!boomed){boomed=true;const pal=[TEAL,AMB,WH,VIO,WH];for(let i=0;i<90;i++){const p={x:cx,y:cy,rgb:pal[i%5],w:rnd(.8,2.2)*k,life:rnd(.8,1.6)};const an=rnd(0,6.2832),v=rnd(60,420)*k;p.vx=Math.cos(an)*v*.8;p.vy=Math.sin(an)*v*.8-rnd(40,160)*k;p.max=p.life;parts.push(p)}}
    glow(cx,cy,(80+520*Math.min(1,a*2.5))*k,WH,Math.max(0,1-a*1.6));
    glow(cx,cy,(260+300*a)*k,VIO,Math.max(0,.55-a*.45));
-   rays.forEach((r,i)=>{const L=a*1900*k*r.l,al=1-a/.65;if(al<=0)return;c.strokeStyle=col(i%2?TEAL:WH,al);c.lineWidth=r.w*k*al+.5;c.beginPath();c.moveTo(cx+Math.cos(r.a)*Math.max(0,L-300*k),cy+Math.sin(r.a)*Math.max(0,L-300*k));c.lineTo(cx+Math.cos(r.a)*L,cy+Math.sin(r.a)*L);c.stroke()});
+   {const f=a<.16?a/.16:Math.max(0,1-(a-.16)/.85),w=(26+120*f)*k;
+    if(f>0){const g=c.createLinearGradient(cx-w,0,cx+w,0);g.addColorStop(0,col(VIO,0));g.addColorStop(.38,col(VIO,f*.55));g.addColorStop(.5,col(WH,f));g.addColorStop(.62,col(VIO,f*.55));g.addColorStop(1,col(VIO,0));c.fillStyle=g;c.fillRect(cx-w,0,w*2,H);
+     const v=c.createLinearGradient(0,0,0,H);v.addColorStop(0,col(WH,0));v.addColorStop(.46,col(WH,f*.9));v.addColorStop(1,col(WH,0));c.fillStyle=v;c.fillRect(cx-3*k,0,6*k,H);
+     c.save();c.translate(cx,cy);c.scale(1,.03);glow(0,0,W*.95,TEAL,f*.9);glow(0,0,W*.45,WH,f);c.restore()}}
    rings.forEach(R=>{const ag=a-R[0];if(ag<0)return;const al=1-ag/1.15;if(al<=0)return;c.strokeStyle=col(R[3],al);c.lineWidth=Math.max(.5,R[2]*al*k);c.beginPath();c.arc(cx,cy,ag*R[1]*k,0,6.2832);c.stroke()});
   }
   /* 粒子 */
-  parts=parts.filter(p=>p.life>0);const dr=Math.pow(.93,dt*60);
-  parts.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=dr;p.vy*=dr;p.life-=dt;const al=p.life/p.max;c.strokeStyle=col(p.rgb,al);c.lineWidth=p.w*(.4+al);c.beginPath();c.moveTo(p.x,p.y);c.lineTo(p.x-p.vx*.035,p.y-p.vy*.035);c.stroke()});
+  parts=parts.filter(p=>p.life>0);const dr=Math.pow(.955,dt*60);
+  parts.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=dr;p.vy*=dr;p.life-=dt;const al=p.life/p.max;c.strokeStyle=col(p.rgb,al);c.lineWidth=p.w*(.4+al);c.beginPath();c.moveTo(p.x,p.y);c.lineTo(p.x-p.vx*.02,p.y-p.vy*.02);c.stroke()});
   c.restore();
   /* 白閃 */
   if(t>=TM){const a=t-TM,f=a<.07?a/.07:Math.max(0,1-(a-.07)/.45);c.globalCompositeOperation="source-over";c.fillStyle=col([235,230,255],f*.78);c.fillRect(0,0,W,H)}
-  if(t>=TM){const a=t-TM,ka=1-(a-.04)/.8;if(ka>0){c.save();c.globalCompositeOperation="source-over";c.font=`900 ${170*k*(1+a*.45)}px "Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif`;c.textAlign="center";c.textBaseline="middle";c.shadowColor="#ffffff";c.shadowBlur=30;c.fillStyle=col([160,140,255],ka);c.fillText("呪",cx,cy+8);c.shadowColor="#6a4dff";c.shadowBlur=18;c.fillText("呪",cx,cy+8);c.restore()}}
+  if(t>=TM){const a=t-TM,ka=1-(a-.04)/.8;if(ka>0){c.save();c.globalCompositeOperation="source-over";c.font=`900 ${170*k*(1+a*.45)}px "Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif`;c.textAlign="center";c.textBaseline="middle";c.shadowColor="#ffffff";c.shadowBlur=30;c.fillStyle=col(az?[150,200,255]:[160,140,255],ka);c.fillText(GL,cx,cy+8);c.shadowColor=az?"#2f7bff":"#6a4dff";c.shadowBlur=18;c.fillText(GL,cx,cy+8);c.restore()}}
   if(t>=TOFF&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
   if(t>=TEND){sp.remove();document.documentElement.classList.remove("open");return}
   requestAnimationFrame(frame)}
  requestAnimationFrame(frame)}
 
-
-/* 五條悟開場：領域展開「無量空處」＋角色出場＋茈光爆 */
-function gojoIntro(){
- let sp=$("#splash");
- if(!sp){sp=document.createElement("div");sp.id="splash";document.body.appendChild(sp)}
- if(!sp.querySelector("#gojo-character"))sp.insertAdjacentHTML("afterbegin",'<div id="gojo-character" role="img" aria-label="五條悟風格白髮、黑色眼罩角色"><svg viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gHair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".55" stop-color="#dceaff"/><stop offset="1" stop-color="#8ba9df"/></linearGradient><linearGradient id="gCoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#26396f"/><stop offset="1" stop-color="#080d25"/></linearGradient><radialGradient id="gOrb"><stop stop-color="#fff"/><stop offset=".2" stop-color="#d9d4ff"/><stop offset=".55" stop-color="#9b73ff"/><stop offset="1" stop-color="#426dff" stop-opacity="0"/></radialGradient><filter id="gGlow"><feGaussianBlur stdDeviation="9"/></filter></defs><ellipse cx="265" cy="580" rx="175" ry="25" fill="#6d8cff" opacity=".24"/><path d="M90 620 Q105 435 190 390 L330 390 Q425 438 440 620Z" fill="url(#gCoat)" stroke="#9bbaff" stroke-opacity=".55" stroke-width="3"/><path d="M185 390 L260 490 335 390 370 620 150 620Z" fill="#101a3b"/><path d="M186 389 L260 490 334 389" fill="none" stroke="#dceaff" stroke-width="9"/><path d="M183 327 Q175 285 180 218 L340 218 Q345 291 326 345 L310 400 Q260 438 210 400Z" fill="#f0f5ff" stroke="#a9c4f3" stroke-width="4"/><path d="M157 175 Q145 75 257 62 Q373 69 363 190 L342 310 Q319 373 260 381 Q201 370 178 309Z" fill="#f5f8ff" stroke="#b5cbf3" stroke-width="4"/><path d="M159 175 Q104 127 145 54 L190 112 185 14 233 91 265 0 286 94 342 28 326 119 386 76 359 179 331 147 309 197 277 142 251 202 220 148 193 197 177 151Z" fill="url(#gHair)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M166 204 Q258 176 354 202 L346 265 Q258 245 174 268Z" fill="#070b1c" stroke="#8fb8ff" stroke-width="5"/><path d="M184 225 Q259 208 334 226" fill="none" stroke="#b8d7ff" stroke-width="3" opacity=".8"/><path d="M225 303 Q260 320 294 302" fill="none" stroke="#8ca6d7" stroke-width="4" stroke-linecap="round"/><path d="M202 397 Q260 431 319 397" fill="none" stroke="#dceaff" stroke-width="8"/><circle cx="390" cy="347" r="95" fill="#9471ff" opacity=".28" filter="url(#gGlow)"/><circle cx="390" cy="347" r="57" fill="url(#gOrb)"/><circle cx="390" cy="347" r="24" fill="#c4b5ff" opacity=".85"/><path d="M390 286 V408 M329 347 H451 M347 304 L433 390 M433 304 L347 390" stroke="#e8e5ff" stroke-width="4" opacity=".95"/><path d="M70 280 Q20 230 55 170 M450 230 Q510 180 480 120" fill="none" stroke="#87b7ff" stroke-width="3" opacity=".6"/></svg></div>');
- if(!sp.querySelector("#gojo-hero"))sp.insertAdjacentHTML("beforeend",'<img id="gojo-hero" src="/calendar/assets/gojo.webp" alt="五條悟插畫" decoding="async">');
- if(!sp.querySelector("#gojo-copy"))sp.insertAdjacentHTML("beforeend",'<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div>');
- let cv=$("#sp");
- if(!cv){cv=document.createElement("canvas");cv.id="sp";sp.appendChild(cv)}
- const hero=$("#gojo-hero"),copy=$("#gojo-copy");
- if(hero){
-  hero.onerror=()=>{
-   hero.style.display="none";
-   if(!$("#gojo-fallback")){
-    const fallback=document.createElement("div");fallback.id="gojo-fallback";
-    fallback.innerHTML='<svg viewBox="0 0 420 520" role="img" aria-label="五條悟風格白髮角色插畫" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gf" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#a9caff"/></linearGradient><radialGradient id="gb"><stop stop-color="#8fc8ff"/><stop offset="1" stop-color="#3456b8"/></radialGradient><linearGradient id="gj" x2="1" y2="1"><stop stop-color="#202d59"/><stop offset="1" stop-color="#080d21"/></linearGradient></defs><ellipse cx="210" cy="486" rx="155" ry="22" fill="#668cff" opacity=".22"/><path d="M91 520 Q104 375 174 350 L245 350 Q323 374 339 520Z" fill="url(#gj)" stroke="#8cb7ff" stroke-opacity=".5" stroke-width="3"/><path d="M169 355 L207 421 250 355 276 520 142 520Z" fill="#101a3a"/><path d="M171 354 L207 421 244 354" fill="none" stroke="#d6e5ff" stroke-width="7"/><path d="M136 198 Q126 92 213 79 Q307 87 293 210 L278 302 Q252 364 208 367 Q157 349 143 294Z" fill="#f1f6ff" stroke="#9bbcff" stroke-width="4"/><path d="M137 180 Q88 128 126 66 L166 112 169 28 207 92 226 12 251 98 291 39 285 119 331 82 296 176 276 144 251 183 225 137 196 185 172 140Z" fill="url(#gf)" stroke="#a8c9ff" stroke-width="4" stroke-linejoin="round"/><path d="M141 211 Q206 186 291 210 L283 254 Q214 241 145 258Z" fill="#090e22" stroke="#7daeff" stroke-width="4"/><path d="M166 233 Q207 218 254 234" fill="none" stroke="#91c9ff" stroke-width="5" opacity=".85"/><path d="M183 275 Q211 289 240 274" fill="none" stroke="#9eb8e8" stroke-width="4" stroke-linecap="round"/><path d="M152 351 Q205 385 263 350" fill="none" stroke="#d8e7ff" stroke-width="7"/><circle cx="315" cy="291" r="43" fill="#9a75ff" opacity=".17"/><circle cx="315" cy="291" r="26" fill="url(#gb)" stroke="#d7eaff" stroke-width="4"/><path d="M315 251 V331 M275 291 H355 M287 263 L343 319 M343 263 L287 319" stroke="#e7f2ff" stroke-width="3" opacity=".9"/></svg>';
-    sp.appendChild(fallback);
-   }
-  };
-  if(hero.complete&&hero.naturalWidth===0)hero.onerror();
- }
- sp.classList.remove("off");document.documentElement.classList.remove("open");
- Object.assign(sp.style,{display:"flex",visibility:"visible",opacity:"1",pointerEvents:"auto",zIndex:"80",animation:"none"});
- Object.assign(cv.style,{display:"block",position:"absolute",inset:"0",width:"100%",height:"100%",zIndex:"2"});
- if(hero){Object.assign(hero.style,{display:"block",visibility:"visible",zIndex:"3"});hero.style.animation="none";void hero.offsetWidth;hero.style.animation="gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards"}
- if(copy){Object.assign(copy.style,{display:"flex",visibility:"visible",zIndex:"4"});copy.style.animation="none";void copy.offsetWidth;copy.style.animation="gojoWords .75s ease-out 1.05s forwards"}
- const c=cv.getContext("2d");if(!c){setTimeout(()=>{sp.classList.add("off");setTimeout(()=>sp.remove(),800)},6000);return}
- const d=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
- cv.width=Math.round(W*d);cv.height=Math.round(H*d);
- const cx=W*.5,cy=H*.44,rnd=(a,b)=>a+Math.random()*(b-a);
- const stars=Array.from({length:190},()=>({x:Math.random()*W,y:Math.random()*H,z:rnd(.4,1.5),p:rnd(0,Math.PI*2)}));
- const dust=Array.from({length:95},()=>({a:rnd(0,Math.PI*2),r:rnd(40,Math.max(W,H)*.72),v:rnd(.12,.55),s:rnd(.5,2.1)}));
- let start=0,last=0,off=false,burst=0,raf=0;
- const blue=[93,160,255],violet=[167,117,255],white=[233,241,255];
- const rgba=(v,a)=>"rgba("+v[0]+","+v[1]+","+v[2]+","+Math.max(0,Math.min(1,a))+")";
- function glow(x,y,r,col,alpha){const g=c.createRadialGradient(x,y,0,x,y,Math.max(1,r));g.addColorStop(0,rgba(white,alpha));g.addColorStop(.24,rgba(col,alpha*.86));g.addColorStop(1,rgba(col,0));c.fillStyle=g;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fill()}
- function frame(now){
-  if(!start){start=now;last=now}
-  const t=(now-start)/1000,dt=Math.min(.04,(now-last)/1000);last=now;
-  c.setTransform(d,0,0,d,0,0);c.globalCompositeOperation="source-over";
-  const bg=c.createRadialGradient(cx,cy,10,cx,cy,Math.max(W,H)*.78);
-  bg.addColorStop(0,"#20275c");bg.addColorStop(.38,"#11183d");bg.addColorStop(.78,"#070a20");bg.addColorStop(1,"#02030b");
-  c.fillStyle=bg;c.fillRect(0,0,W,H);
-  c.globalCompositeOperation="lighter";
-  // 無量空處：無盡同心空間、旋轉軌道與資訊流
-  const reveal=Math.min(1,t/.9),pulse=1+.045*Math.sin(t*2.1);
-  for(let i=0;i<11;i++){
-   const rr=(42+i*i*13+((t*9+i*19)%19))*pulse;
-   c.save();c.translate(cx,cy);c.rotate(t*(i%2?-.035:.028)+i*.17);
-   c.beginPath();c.ellipse(0,0,rr*(1.08+i*.006),rr*(.55+i*.012),0,0,Math.PI*2);
-   c.strokeStyle=rgba(i%3===0?violet:blue,(.07+i*.012)*reveal);c.lineWidth=(i%3===0?2.1:1)*d;c.stroke();
-   c.restore();
-  }
-  for(let i=0;i<6;i++){
-   const a=t*.13+i*Math.PI/3,rr=Math.min(W,H)*(.19+i*.075);
-   c.beginPath();c.ellipse(cx,cy,rr*1.55,rr*.58,a,0,Math.PI*2);
-   c.strokeStyle=rgba(i%2?blue:violet,.11);c.lineWidth=1.2*d;c.stroke();
-  }
-  // Dense, drifting knowledge-like stars
-  stars.forEach(o=>{const x=(o.x+Math.sin(t*.22+o.p)*15+W)%W,y=(o.y-t*o.z*9+H*3)%(H);const alpha=(.2+.65*Math.abs(Math.sin(t*1.3+o.p)))*reveal;c.fillStyle=rgba(white,alpha);c.fillRect(x,y,o.z*d*.8,o.z*d*.8)});
-  dust.forEach(o=>{o.a+=o.v*dt*.11;const rr=o.r*(.88+.12*Math.sin(t*.6+o.a));const x=cx+Math.cos(o.a+t*.08)*rr,y=cy+Math.sin(o.a+t*.08)*rr*.64;glow(x,y,o.s*5,blue,.25)});
-  // Center of the domain slowly focuses behind Gojo
-  glow(cx,cy,Math.min(W,H)*(.32+.025*Math.sin(t*1.8)),violet,.24);
-  // 蒼與赫：藍色與紅色能量從兩側向角色掌心匯聚
-  const focusX=cx+W*.205,focusY=cy+H*.055;
-  const orb=(x,y,r,color,phase)=>{
-   glow(x,y,r*2.8,color,.78);
-   const g=c.createRadialGradient(x-r*.22,y-r*.24,1,x,y,r);
-   g.addColorStop(0,"rgba(255,255,255,.99)");g.addColorStop(.22,rgba(color,.98));g.addColorStop(.72,rgba(color,.7));g.addColorStop(1,rgba(color,.02));
-   c.fillStyle=g;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fill();
-   c.strokeStyle=rgba(white,.82);c.lineWidth=1.5*d;c.beginPath();c.ellipse(x,y,r*1.35,r*.56,phase,0,Math.PI*2);c.stroke();
-   for(let k=0;k<4;k++){const a=phase+k*Math.PI/2;c.strokeStyle=rgba(color,.7);c.lineWidth=2*d;c.beginPath();c.moveTo(x+Math.cos(a)*r*1.2,y+Math.sin(a)*r*.7);c.lineTo(x+Math.cos(a)*r*1.7,y+Math.sin(a)*r);c.stroke()}
-  };
-  const converge=Math.max(0,Math.min(1,(t-1.05)/1.65)),smooth=converge*converge*(3-2*converge);
-  if(t>1.05&&t<3.05){
-   const spread=W*(.24*(1-smooth)+.018),orbY=focusY+Math.sin(t*3)*H*.012;
-   c.save();c.globalCompositeOperation="lighter";c.setLineDash([5*d,10*d]);c.lineWidth=2*d;
-   c.strokeStyle=rgba(blue,.5);c.beginPath();c.moveTo(focusX-spread,orbY);c.lineTo(focusX,focusY);c.stroke();
-   c.strokeStyle="rgba(255,83,137,.5)";c.beginPath();c.moveTo(focusX+spread,orbY);c.lineTo(focusX,focusY);c.stroke();c.setLineDash([]);
-   orb(focusX-spread,orbY,(13+smooth*17)*Math.min(1.2,W/430),blue,t*1.8);
-   orb(focusX+spread,orbY,(13+smooth*17)*Math.min(1.2,W/430),[255,83,137],-t*1.7);
-   c.restore();
-   for(let i=0;i<14;i++){const q=(t*1.7+i/14)%1;for(const side of [-1,1]){const x=focusX+side*spread*(1-q),y=orbY+(focusY-orbY)*q;c.fillStyle=rgba(side<0?blue:[255,83,137],.65*(1-q));c.beginPath();c.arc(x,y,1.3*d,0,Math.PI*2);c.fill()}}
-  }
-  // 兩股力量融合為虛式・茈：紫色核心與旋轉空間環
-  if(t>=2.55&&t<4.7){
-   const q=Math.min(1,(t-2.55)/.85),r=(11+q*66)*Math.min(1.2,W/430);
-   glow(focusX,focusY,r*3.8,violet,.76);glow(focusX,focusY,r*1.25,[205,185,255],.94);
-   c.save();c.translate(focusX,focusY);c.rotate(t*1.8);
-   for(let j=0;j<3;j++){c.beginPath();c.ellipse(0,0,r*(1.25+j*.22),r*(.5+j*.12),j*.7,0,Math.PI*2);c.strokeStyle=rgba(j%2?blue:violet,.72-j*.12);c.lineWidth=(2-j*.35)*d;c.stroke()}
-   c.restore();c.strokeStyle=rgba(white,.95);c.lineWidth=2*d;c.beginPath();c.arc(focusX,focusY,r*(1.2+.08*Math.sin(t*12)),0,Math.PI*2);c.stroke();
-  }
-  // 茈發射：白閃、紫藍光束與向外擴散的空間衝擊波
-  if(t>=4.05){
-   const q=t-4.05,fade=Math.max(0,1-q/1.22),len=Math.min(W*1.75,q*W*2.15);
-   c.save();c.translate(focusX,focusY);c.rotate(-.13);
-   const beam=c.createLinearGradient(0,0,len,0);beam.addColorStop(0,"rgba(255,255,255,1)");beam.addColorStop(.12,"rgba(222,199,255,.98)");beam.addColorStop(.38,"rgba(155,112,255,.82)");beam.addColorStop(.72,"rgba(83,139,255,.42)");beam.addColorStop(1,"rgba(90,120,255,0)");
-   c.fillStyle=beam;c.shadowColor="#a987ff";c.shadowBlur=42*d;c.beginPath();c.moveTo(0,-23*d);c.lineTo(len,-3*d);c.lineTo(len,3*d);c.lineTo(0,23*d);c.closePath();c.fill();
-   c.strokeStyle="rgba(255,255,255,.82)";c.lineWidth=2*d;c.beginPath();c.moveTo(0,0);c.lineTo(len,0);c.stroke();c.restore();
-   if(!burst){burst=1;glow(focusX,focusY,Math.max(W,H)*.52,white,.92)}
-   if(q<.2){c.fillStyle="rgba(230,238,255,"+((1-q/.2)*.78)+")";c.fillRect(0,0,W,H)}
-   c.globalAlpha=fade;
-   for(let i=0;i<24;i++){const a=i*Math.PI/12+t*1.6,rr=(55+q*210)*d;c.strokeStyle=rgba(i%2?blue:violet,.58);c.lineWidth=1.6*d;c.beginPath();c.moveTo(focusX+Math.cos(a)*rr,focusY+Math.sin(a)*rr);c.lineTo(focusX+Math.cos(a)*rr*2.2,focusY+Math.sin(a)*rr*2.2);c.stroke()}
-   c.globalAlpha=1;
-  }
-  if(t>5.65&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
-  if(t>6.45){sp.remove();document.documentElement.classList.remove("open");return}
-  raf=requestAnimationFrame(frame);
- }
- if(raf)cancelAnimationFrame(raf);
- raf=requestAnimationFrame(frame);
-}
 /* ---------- 安裝到手機 ---------- */
 const standalone=()=>matchMedia("(display-mode:standalone)").matches||navigator.standalone===true;
 const installable=()=>/^https?:/.test(location.protocol)&&(location.hostname.endsWith("github.io")||location.hostname==="localhost")&&!standalone();
@@ -1006,7 +859,7 @@ async function installApp(){
 
 /* ---------- 風格特效（咒術／忍者）---------- */
 const reduceMo=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
-const fxOn=()=>(ST.style==="jjk"||ST.style==="ninja"||ST.style==="gojo")&&(!reduceMo()||ST.style==="gojo");
+const fxOn=()=>(isJ()||ST.style==="ninja")&&!reduceMo();
 const fx=document.createElement("canvas");fx.id="fx";document.body.prepend(fx);
 const fc=fx.getContext("2d");let fW=0,fH=0,dots=[],slash=null,thr=null,fxRun=false,fxT=0;
 function fxSize(){const d=Math.min(2,devicePixelRatio||1);fW=fx.width=innerWidth*d;fH=fx.height=innerHeight*d;fx._d=d}
@@ -1019,7 +872,7 @@ function fxLoop(t){
  dots.forEach(o=>{o.y-=o.v*(nn?1.15:1);o.x+=Math.sin(t/1800+o.p)*.25*d;if(o.y<-10){o.y=fH+10;o.x=Math.random()*fW}
   const a=.25+.45*Math.abs(Math.sin(t/900+o.p)),g=fc.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r*4);
   if(nn){g.addColorStop(0,`hsla(${o.h<230?350:14},90%,58%,${a*.8})`);g.addColorStop(1,`hsla(352,90%,50%,0)`)}
-  else{g.addColorStop(0,`hsla(${o.h},100%,80%,${a})`);g.addColorStop(1,`hsla(${o.h},100%,60%,0)`)}
+  else{const hh=ST.style==="azure"?o.h-45:o.h;g.addColorStop(0,`hsla(${hh},100%,80%,${a})`);g.addColorStop(1,`hsla(${hh},100%,60%,0)`)}
   fc.fillStyle=g;fc.beginPath();fc.arc(o.x,o.y,o.r*4,0,6.28);fc.fill()});
  if(nn){
   if(!thr&&t-fxT>8000){const lr=Math.random()<.5,y0=fH*(.12+Math.random()*.5);thr={x0:lr?-40*d:fW+40*d,y0,x1:lr?fW+40*d:-40*d,y1:y0+fH*(.08+Math.random()*.2),t0:t};fxT=t}
@@ -1034,9 +887,8 @@ addEventListener("resize",()=>{if(dots.length)fxInit()});
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)fxStart()});
 document.addEventListener("pointerdown",e=>{if(!fxOn())return;
  const add=(el,ms)=>{el.style.left=e.clientX+"px";el.style.top=e.clientY+"px";document.body.appendChild(el);setTimeout(()=>el.remove(),ms)};
- if(ST.style==="jjk"){const r=document.createElement("i");r.className="tap";add(r,700);
+ if(isJ()){const r=document.createElement("i");r.className="tap";add(r,700);
   for(let k=0;k<7;k++){const a=k/7*6.28+Math.random(),dd=26+Math.random()*26,p=document.createElement("b");p.className="sp";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
- else if(ST.style==="gojo"){const r=document.createElement("i");r.className="gojo-tap";add(r,900);for(let k=0;k<14;k++){const a=k/14*6.283+Math.random()*.12,dd=42+Math.random()*76,p=document.createElement("b");p.className="gojo-spark";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,820)}}
  else{const c=document.createElement("i");c.className="cut";c.style.setProperty("--r",(-65+Math.random()*50)+"deg");add(c,520);
   for(let k=0;k<4;k++){const a=k/4*6.28+Math.random()*.8,dd=30+Math.random()*26,p=document.createElement("b");p.className="sk";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
 },{passive:true});
@@ -1044,7 +896,7 @@ document.addEventListener("pointerdown",e=>{if(!fxOn())return;
 /* ---------- first-run welcome ---------- */
 function showOnboard(){
  const o=$("#ob");
- o.innerHTML=`<div class="sheet"><div class="shh"><b>${nj()?(ST.style==="jjk"?"🌀":"🥷")+" 歡迎，先設定兩件事":"歡迎使用，先設定兩件事"}</b></div>
+ o.innerHTML=`<div class="sheet"><div class="shh"><b>${nj()?(ST.style==="azure"?"💠":ST.style==="jjk"?"🌀":"🥷")+" 歡迎，先設定兩件事":"歡迎使用，先設定兩件事"}</b></div>
  <div class="card sg"><b>① 位置（用 Google 地圖）</b><div class="mut">行程可以記下地點，並在 Google 地圖開啟。想用再按「允許」，Safari 會問你；不想用可以按「略過」，其他功能照常使用，之後想開再到設定。</div><div class="two"><button id="ob-loc-no">略過</button><button id="ob-loc">允許使用位置</button></div><div class="mut" id="ob-lm"></div><div class="mut">之後想改，請到 iPad「設定 → 隱私權與安全性 → 定位服務 → Safari 網站」調整。</div></div>
  <div class="card sg"><b>② 資料保護</b><div class="mut">行程只存在這台裝置。建議加到主畫面使用，並到「設定」定期備份。</div><div class="two"><button id="ob-pe-no">略過</button><button id="ob-pe">開啟資料保護</button></div><div class="mut" id="ob-pm"></div></div>
  <button class="pri" id="ob-go">開始使用</button><div class="mut" style="text-align:center">兩項都不是必要的，略過也能正常使用。</div></div>`;
@@ -1086,7 +938,7 @@ setInterval(tick,30000);setInterval(()=>{if(!document.hidden&&/^https?:/.test(lo
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAll();tick();if(/^https?:/.test(location.protocol)&&Date.now()-lastChk>5*60e3)checkUpdate(false)}});
 
 applyStyle();
-if(ST.style==="jjk"&&!reduceMo())jjkIntro();else if(ST.style==="gojo")gojoIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
+if(isJ()&&!reduceMo())jjkIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
 if(ST.onboard&&ST.pe&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
