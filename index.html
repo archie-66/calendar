@@ -239,12 +239,14 @@ html[data-style="jjk"] #splash .ldr{display:none}
 @keyframes kin{from{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.15)}to{opacity:1;transform:scale(1)}}
 .sig .ry{stroke:#cfd6ff;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:ray .7s 1.45s ease-out both}
 @keyframes ray{0%{opacity:1;stroke-dashoffset:1}60%{opacity:1;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:-1}}
-html[data-style="jjk"] #splash::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 46%,rgba(190,200,255,.6),transparent 55%);opacity:0;animation:flash .7s 1.4s ease-out both;pointer-events:none}
-@keyframes flash{30%{opacity:1}100%{opacity:0}}
-html[data-style="jjk"] #splash b{opacity:0;animation:bin .8s 1.5s forwards}
+html[data-style="jjk"] #splash b{opacity:0;animation:bin .8s 1.75s forwards;position:relative;z-index:2;margin-top:min(44vh,320px);color:#dfe3ff;text-shadow:0 0 14px #7c6bff}
+#sp{display:none;position:absolute;inset:0;width:100%;height:100%}html[data-style="jjk"] #sp{display:block}
+html[data-style="jjk"] #splash{transition:opacity .7s}
+html.open #app{animation:appin .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes appin{from{transform:scale(1.14);filter:blur(10px);opacity:.4}to{transform:none;filter:none;opacity:1}}
 @keyframes bin{from{opacity:0;letter-spacing:.9em}to{opacity:1;letter-spacing:.3em}}
 html[data-style="jjk"] #splash.off .sig{animation:bursto .5s ease-in forwards}
-html[data-style="jjk"] #splash{animation-delay:3.4s}
+html[data-style="jjk"] #splash{animation-delay:3.8s}
 .nin{display:none;width:min(78vw,340px);height:auto;overflow:visible;animation:nshake .3s 1.05s}
 html[data-style="ninja"] .nin{display:block}
 html[data-style="ninja"] #splash .ldr{display:none}
@@ -310,7 +312,7 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="shk" viewBox="0 0 24 24"><path d="M12 1l3.1 7.9L23 12l-7.9 3.1L12 23l-3.1-7.9L1 12l7.9-3.1z" fill="currentColor"/><circle cx="12" cy="12" r="2.4" fill="var(--sheet)"/></symbol></svg>
-<div id="splash"><svg class="nin" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="sun" cx="100" cy="100" r="62"/><g class="thr tr3"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr2"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr1"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr t0"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><circle class="imp" cx="100" cy="100" r="20"/><text class="kj2" x="100" y="128" text-anchor="middle" font-size="84" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">忍</text><g class="cuts"><line pathLength="1" x1="-10" y1="38" x2="210" y2="152"/><line pathLength="1" x1="-10" y1="152" x2="210" y2="48"/><line pathLength="1" x1="34" y1="-10" x2="168" y2="210"/></g></svg><i class="sm" style="--x:-60px;--y:10px;--d:0s"></i><i class="sm" style="--x:55px;--y:-15px;--d:0.05s"></i><i class="sm" style="--x:-20px;--y:40px;--d:0.1s"></i><i class="sm" style="--x:30px;--y:35px;--d:0.12s"></i><i class="sm" style="--x:-75px;--y:-30px;--d:0.15s"></i><i class="sm" style="--x:70px;--y:30px;--d:0.18s"></i><i class="sm" style="--x:0px;--y:-45px;--d:0.08s"></i><svg class="sig" viewBox="-5 -5 210 210" aria-hidden="true"><g class="rot"><circle class="dr s1" pathLength="1" cx="100" cy="100" r="92"/><circle class="s2" cx="100" cy="100" r="80"/><polygon class="dr s3" pathLength="1" points="100,24 165.8,138 34.2,138"/><polygon class="dr s3 s3b" pathLength="1" points="100,176 34.2,62 165.8,62"/><circle class="dr s4" pathLength="1" cx="100" cy="100" r="44"/></g><g><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(0 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(22 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(44 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(66 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(88 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(110 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(132 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(154 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(176 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(198 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(220 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(242 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(264 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(286 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(308 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(330 100 100)"/><line class="ry" pathLength="1" x1="100" y1="52" x2="100" y2="2" transform="rotate(352 100 100)"/></g><text class="kj" x="100" y="122" text-anchor="middle" font-size="64" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">呪</text></svg><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
+<div id="splash"><svg class="nin" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="sun" cx="100" cy="100" r="62"/><g class="thr tr3"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr2"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr1"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr t0"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><circle class="imp" cx="100" cy="100" r="20"/><text class="kj2" x="100" y="128" text-anchor="middle" font-size="84" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">忍</text><g class="cuts"><line pathLength="1" x1="-10" y1="38" x2="210" y2="152"/><line pathLength="1" x1="-10" y1="152" x2="210" y2="48"/><line pathLength="1" x1="34" y1="-10" x2="168" y2="210"/></g></svg><i class="sm" style="--x:-60px;--y:10px;--d:0s"></i><i class="sm" style="--x:55px;--y:-15px;--d:0.05s"></i><i class="sm" style="--x:-20px;--y:40px;--d:0.1s"></i><i class="sm" style="--x:30px;--y:35px;--d:0.12s"></i><i class="sm" style="--x:-75px;--y:-30px;--d:0.15s"></i><i class="sm" style="--x:70px;--y:30px;--d:0.18s"></i><i class="sm" style="--x:0px;--y:-45px;--d:0.08s"></i><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
 <div id="upd" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b class="big">有新版本可以更新</b><p class="mut" id="upd-t"></p><div class="two"><button id="upd-no">稍後</button><button class="pri" id="upd-go">立即更新</button></div></div></div>
 <div id="busy" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><div id="busy-t"></div></div></div>
 <div id="app">
@@ -374,7 +376,7 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-19.5";
+const VER="2026-11-20.1";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
@@ -738,6 +740,59 @@ $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=o
 function setStyle(s){ST.style=s;saveST();applyStyle()}
 function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
 
+/* ---------- 咒術開場：雙能量球融合爆開 ---------- */
+function jjkIntro(){
+ const sp=$("#splash"),cv=$("#sp"),c=cv.getContext("2d");
+ const dpr=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
+ cv.width=W*dpr;cv.height=H*dpr;
+ const cx=W/2,cy=H*.46,R0=Math.min(W*.46,Math.max(260,H*.34)),k=Math.min(1.3,Math.max(.75,W/430));
+ const TM=1.55,TOFF=1.95,TEND=3.1,TEAL=[45,226,208],AMB=[255,178,61],VIO=[150,120,255],WH=[255,255,255];
+ const col=(a,al)=>`rgba(${a[0]},${a[1]},${a[2]},${Math.max(0,Math.min(1,al))})`,rnd=(a,b)=>a+Math.random()*(b-a);
+ const hist=[[],[]];let parts=[],boomed=false,off=false,t0=0,last=0;
+ const rays=Array.from({length:40},(_,i)=>({a:i/40*6.2832+rnd(-.08,.08),l:rnd(.6,1.2),w:rnd(1,3)}));
+ const rings=[[0,1500,16,TEAL],[.05,1100,11,AMB],[.1,760,22,WH],[.17,560,7,VIO]];
+ function glow(x,y,r,rgb,al){const g=c.createRadialGradient(x,y,0,x,y,Math.max(1,r));g.addColorStop(0,col(WH,al));g.addColorStop(.28,col(rgb,al*.85));g.addColorStop(1,col(rgb,0));c.fillStyle=g;c.beginPath();c.arc(x,y,Math.max(1,r),0,6.2832);c.fill()}
+ function bolt(x1,y1,x2,y2,rgb,w,al){const n=10,dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len;c.beginPath();c.moveTo(x1,y1);for(let i=1;i<n;i++){const f=i/n,j=(Math.random()-.5)*len*.2*Math.sin(f*Math.PI);c.lineTo(x1+dx*f+nx*j,y1+dy*f+ny*j)}c.lineTo(x2,y2);c.lineJoin="round";c.strokeStyle=col(rgb,al*.6);c.lineWidth=w*3.2;c.stroke();c.strokeStyle=col(WH,al);c.lineWidth=w;c.stroke()}
+ function spawn(x,y,rgb,sp,life,w){const a=rnd(0,6.2832),v=rnd(sp*.4,sp);parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,rgb,life,max:life,w})}
+ function frame(now){
+  if(!t0){t0=now;last=now}
+  const t=(now-t0)/1000,dt=Math.min(.05,(now-last)/1000);last=now;
+  c.setTransform(dpr,0,0,dpr,0,0);c.globalCompositeOperation="source-over";c.fillStyle="#07070f";c.fillRect(0,0,W,H);
+  const u=Math.min(1,t/TM),amp=t<TM?8*u*u*u:Math.max(0,12*(1-(t-TM)/.9));
+  c.save();c.translate(rnd(-amp,amp),rnd(-amp,amp));c.globalCompositeOperation="lighter";
+  /* 背景光暈 */
+  glow(cx,cy,(60+330*u*u)*k,VIO,.28*u*u+.1);
+  if(t<TM){
+   const r=R0*(1-Math.pow(u,2.3)),th=Math.PI+6.2832*2.3*u*u,sz=(15+36*u*u)*k;
+   const P=[0,1].map(i=>{const a=th+i*Math.PI;return[cx+Math.cos(a)*r,cy+Math.sin(a)*r*.6]}),C=[TEAL,AMB];
+   P.forEach((p,i)=>{const h=hist[i];h.push([p[0],p[1],sz]);if(h.length>28)h.shift();
+    h.forEach((q,j)=>{const f=j/h.length;glow(q[0],q[1],q[2]*(.7+.9*f),C[i],f*f*.55)});
+    for(let m=0;m<2;m++)spawn(p[0],p[1],C[i],220*k,.55,rnd(1,2.4)*k)});
+   if(u>.28){const it=(u-.28)/.72,n=1+Math.floor(it*3);for(let m=0;m<n;m++)bolt(P[0][0],P[0][1],P[1][0],P[1][1],[170,210,255],1.3*k,.45+.55*Math.random()*it)}
+   P.forEach((p,i)=>{
+    if(Math.random()<.7){const a=rnd(0,6.2832),l=rnd(40,100)*k*(1+u);bolt(p[0],p[1],p[0]+Math.cos(a)*l,p[1]+Math.sin(a)*l,C[i],1*k,.7)}
+    glow(p[0],p[1],sz*3,C[i],.8);glow(p[0],p[1],sz*1.05,WH,1);
+    c.lineWidth=2.2*k;for(let m=0;m<3;m++){c.strokeStyle=col(C[i],.85);c.beginPath();c.arc(p[0],p[1],sz*1.55,t*9+m*2.094,t*9+m*2.094+1.25);c.stroke()}});
+  }else{
+   const a=t-TM;
+   if(!boomed){boomed=true;const pal=[TEAL,AMB,WH,VIO,WH];for(let i=0;i<190;i++){const p={x:cx,y:cy,rgb:pal[i%5],w:rnd(1,3.4)*k,life:rnd(.7,1.7)};const an=rnd(0,6.2832),v=rnd(160,1150)*k;p.vx=Math.cos(an)*v;p.vy=Math.sin(an)*v;p.max=p.life;parts.push(p)}}
+   glow(cx,cy,(80+520*Math.min(1,a*2.5))*k,WH,Math.max(0,1-a*1.6));
+   glow(cx,cy,(260+300*a)*k,VIO,Math.max(0,.55-a*.45));
+   rays.forEach((r,i)=>{const L=a*1900*k*r.l,al=1-a/.65;if(al<=0)return;c.strokeStyle=col(i%2?TEAL:WH,al);c.lineWidth=r.w*k*al+.5;c.beginPath();c.moveTo(cx+Math.cos(r.a)*Math.max(0,L-300*k),cy+Math.sin(r.a)*Math.max(0,L-300*k));c.lineTo(cx+Math.cos(r.a)*L,cy+Math.sin(r.a)*L);c.stroke()});
+   rings.forEach(R=>{const ag=a-R[0];if(ag<0)return;const al=1-ag/1.15;if(al<=0)return;c.strokeStyle=col(R[3],al);c.lineWidth=Math.max(.5,R[2]*al*k);c.beginPath();c.arc(cx,cy,ag*R[1]*k,0,6.2832);c.stroke()});
+  }
+  /* 粒子 */
+  parts=parts.filter(p=>p.life>0);const dr=Math.pow(.93,dt*60);
+  parts.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=dr;p.vy*=dr;p.life-=dt;const al=p.life/p.max;c.strokeStyle=col(p.rgb,al);c.lineWidth=p.w*(.4+al);c.beginPath();c.moveTo(p.x,p.y);c.lineTo(p.x-p.vx*.035,p.y-p.vy*.035);c.stroke()});
+  c.restore();
+  /* 白閃 */
+  if(t>=TM){const a=t-TM,f=a<.07?a/.07:Math.max(0,1-(a-.07)/.45);c.globalCompositeOperation="source-over";c.fillStyle=col([235,230,255],f*.78);c.fillRect(0,0,W,H)}
+  if(t>=TM){const a=t-TM,ka=1-(a-.04)/.8;if(ka>0){c.save();c.globalCompositeOperation="source-over";c.font=`900 ${170*k*(1+a*.45)}px "Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif`;c.textAlign="center";c.textBaseline="middle";c.shadowColor="#ffffff";c.shadowBlur=30;c.fillStyle=col([160,140,255],ka);c.fillText("呪",cx,cy+8);c.shadowColor="#6a4dff";c.shadowBlur=18;c.fillText("呪",cx,cy+8);c.restore()}}
+  if(t>=TOFF&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
+  if(t>=TEND){sp.remove();document.documentElement.classList.remove("open");return}
+  requestAnimationFrame(frame)}
+ requestAnimationFrame(frame)}
+
 /* ---------- 安裝到手機 ---------- */
 const standalone=()=>matchMedia("(display-mode:standalone)").matches||navigator.standalone===true;
 const installable=()=>/^https?:/.test(location.protocol)&&(location.hostname.endsWith("github.io")||location.hostname==="localhost")&&!standalone();
@@ -831,7 +886,7 @@ setInterval(tick,30000);setInterval(()=>{if(!document.hidden&&/^https?:/.test(lo
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAll();tick();if(/^https?:/.test(location.protocol)&&Date.now()-lastChk>5*60e3)checkUpdate(false)}});
 
 applyStyle();
-setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},(ST.style==="jjk"||ST.style==="ninja")&&!reduceMo()?2700:1000);
+if(ST.style==="jjk"&&!reduceMo())jjkIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
 if(ST.onboard&&ST.pe&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
