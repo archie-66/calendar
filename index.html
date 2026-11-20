@@ -361,6 +361,7 @@ html[data-style="gojo"] #splash{display:flex!important;visibility:visible!import
 html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{display:none!important}
 html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
 html[data-style="gojo"] #gojo-fallback{display:block;position:absolute;z-index:3;left:50%;top:45%;width:min(88vw,420px);height:70vh;transform:translate(-50%,-50%);filter:drop-shadow(0 0 28px rgba(104,143,255,.55))}html[data-style="gojo"] #gojo-fallback svg{width:100%;height:100%}
+html[data-style="gojo"] #gojo-character{display:block!important;position:absolute;z-index:4;left:50%;top:43%;width:min(94vw,500px);height:min(76vh,620px);transform:translate(-50%,-50%);opacity:0;animation:gojoCharacterEnter 1.25s cubic-bezier(.16,.82,.18,1) .18s forwards;filter:drop-shadow(0 0 26px rgba(110,153,255,.55));pointer-events:none}html[data-style="gojo"] #gojo-character svg{width:100%;height:100%;overflow:visible}@keyframes gojoCharacterEnter{0%{opacity:0;transform:translate(-50%,9%) scale(.78);filter:blur(14px)}65%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0)}}html[data-style="gojo"] #gojo-hero{display:none!important}
 html[data-style="gojo"] #gojo-hero{display:block!important;position:absolute;z-index:3;left:50%;top:45%;width:min(96vw,460px);height:auto;max-height:76vh;object-fit:contain;transform:translate(-50%,-50%);overflow:visible;filter:drop-shadow(0 0 24px rgba(104,143,255,.48));opacity:0;animation:gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards}
 html[data-style="gojo"] #gojo-copy{display:flex!important;position:absolute;z-index:4;left:0;right:0;bottom:max(5vh,30px);align-items:center;flex-direction:column;gap:5px;text-align:center;pointer-events:none;opacity:0;animation:gojoWords .75s ease-out 1.05s forwards}
 html[data-style="gojo"] #gojo-copy b{font:800 clamp(18px,4vw,28px)/1.2 var(--hf);letter-spacing:.38em;color:#b9d4ff;text-shadow:0 0 14px #668dff,0 0 32px #886bff}
@@ -439,7 +440,7 @@ html[data-style="gojo"] .fab{z-index:5}
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-21.1";
+const VER="2026-11-21.2";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
@@ -450,7 +451,7 @@ S.ev=S.ev||[];S.td=S.td||[];S.mt=S.mt||[];
 const save=()=>{try{localStorage.setItem("cal1",JSON.stringify(S))}catch(e){note("儲存空間已滿，請先備份並清理",6000)}};
 const saveST=()=>{try{localStorage.setItem("cal_set",JSON.stringify(ST))}catch(e){}};
 // Gojo theme rollout: migrate the previous default once; users can still switch themes in Settings.
-if(!ST.gojoThemeRollout){ST.style="gojo";ST.gojoThemeRollout=1;saveST()}
+if(ST.gojoThemeRollout!==2){ST.style="gojo";ST.gojoThemeRollout=2;saveST()}
 const pad=n=>String(n).padStart(2,"0"),fmt=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()),today=()=>fmt(new Date());
 const parse=s=>{const[a,b,c]=s.split("-").map(Number);return new Date(a,b-1,c)};
 const addD=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return fmt(d)};
@@ -863,7 +864,8 @@ function jjkIntro(){
 function gojoIntro(){
  let sp=$("#splash");
  if(!sp){sp=document.createElement("div");sp.id="splash";document.body.appendChild(sp)}
- if(!sp.querySelector("#gojo-hero"))sp.insertAdjacentHTML("afterbegin",'<img id="gojo-hero" src="assets/gojo.webp" alt="五條悟白髮、黑色眼罩，手中凝聚紫色能量的插畫" decoding="async">');
+ if(!sp.querySelector("#gojo-character"))sp.insertAdjacentHTML("afterbegin",'<div id="gojo-character" role="img" aria-label="五條悟風格白髮、黑色眼罩角色"><svg viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gHair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".55" stop-color="#dceaff"/><stop offset="1" stop-color="#8ba9df"/></linearGradient><linearGradient id="gCoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#26396f"/><stop offset="1" stop-color="#080d25"/></linearGradient><radialGradient id="gOrb"><stop stop-color="#fff"/><stop offset=".2" stop-color="#d9d4ff"/><stop offset=".55" stop-color="#9b73ff"/><stop offset="1" stop-color="#426dff" stop-opacity="0"/></radialGradient><filter id="gGlow"><feGaussianBlur stdDeviation="9"/></filter></defs><ellipse cx="265" cy="580" rx="175" ry="25" fill="#6d8cff" opacity=".24"/><path d="M90 620 Q105 435 190 390 L330 390 Q425 438 440 620Z" fill="url(#gCoat)" stroke="#9bbaff" stroke-opacity=".55" stroke-width="3"/><path d="M185 390 L260 490 335 390 370 620 150 620Z" fill="#101a3b"/><path d="M186 389 L260 490 334 389" fill="none" stroke="#dceaff" stroke-width="9"/><path d="M183 327 Q175 285 180 218 L340 218 Q345 291 326 345 L310 400 Q260 438 210 400Z" fill="#f0f5ff" stroke="#a9c4f3" stroke-width="4"/><path d="M157 175 Q145 75 257 62 Q373 69 363 190 L342 310 Q319 373 260 381 Q201 370 178 309Z" fill="#f5f8ff" stroke="#b5cbf3" stroke-width="4"/><path d="M159 175 Q104 127 145 54 L190 112 185 14 233 91 265 0 286 94 342 28 326 119 386 76 359 179 331 147 309 197 277 142 251 202 220 148 193 197 177 151Z" fill="url(#gHair)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M166 204 Q258 176 354 202 L346 265 Q258 245 174 268Z" fill="#070b1c" stroke="#8fb8ff" stroke-width="5"/><path d="M184 225 Q259 208 334 226" fill="none" stroke="#b8d7ff" stroke-width="3" opacity=".8"/><path d="M225 303 Q260 320 294 302" fill="none" stroke="#8ca6d7" stroke-width="4" stroke-linecap="round"/><path d="M202 397 Q260 431 319 397" fill="none" stroke="#dceaff" stroke-width="8"/><circle cx="390" cy="347" r="95" fill="#9471ff" opacity=".28" filter="url(#gGlow)"/><circle cx="390" cy="347" r="57" fill="url(#gOrb)"/><circle cx="390" cy="347" r="24" fill="#c4b5ff" opacity=".85"/><path d="M390 286 V408 M329 347 H451 M347 304 L433 390 M433 304 L347 390" stroke="#e8e5ff" stroke-width="4" opacity=".95"/><path d="M70 280 Q20 230 55 170 M450 230 Q510 180 480 120" fill="none" stroke="#87b7ff" stroke-width="3" opacity=".6"/></svg></div>');
+ if(!sp.querySelector("#gojo-hero"))sp.insertAdjacentHTML("beforeend",'<img id="gojo-hero" src="assets/gojo.webp" alt="五條悟插畫" decoding="async">');
  if(!sp.querySelector("#gojo-copy"))sp.insertAdjacentHTML("beforeend",'<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div>');
  let cv=$("#sp");
  if(!cv){cv=document.createElement("canvas");cv.id="sp";sp.appendChild(cv)}
