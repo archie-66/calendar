@@ -463,7 +463,7 @@ S.ev=S.ev||[];S.td=S.td||[];S.mt=S.mt||[];
 const save=()=>{try{localStorage.setItem("cal1",JSON.stringify(S))}catch(e){note("儲存空間已滿，請先備份並清理",6000)}};
 const saveST=()=>{try{localStorage.setItem("cal_set",JSON.stringify(ST))}catch(e){}};
 // Gojo theme rollout: migrate the previous default once; users can still switch themes in Settings.
-if(ST.gojoThemeRollout!==2){ST.style="gojo";ST.gojoThemeRollout=2;saveST()}
+if(ST.gojoThemeRollout!==3){ST.style="gojo";ST.gojoThemeRollout=3;saveST()}
 const pad=n=>String(n).padStart(2,"0"),fmt=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()),today=()=>fmt(new Date());
 const parse=s=>{const[a,b,c]=s.split("-").map(Number);return new Date(a,b-1,c)};
 const addD=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return fmt(d)};
