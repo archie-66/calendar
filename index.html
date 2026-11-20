@@ -360,6 +360,7 @@ html[data-style="gojo"] .fab{right:20px!important;left:auto!important;bottom:cal
 html[data-style="gojo"] #splash{display:flex!important;visibility:visible!important;opacity:1;pointer-events:auto;background:radial-gradient(ellipse at 50% 50%,#1b285e 0%,#0b102c 52%,#02040c 100%);animation:none!important;overflow:hidden}
 html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{display:none!important}
 html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
+html[data-style="gojo"] #gojo-fallback{display:block;position:absolute;z-index:3;left:50%;top:45%;width:min(88vw,420px);height:70vh;transform:translate(-50%,-50%);filter:drop-shadow(0 0 28px rgba(104,143,255,.55))}html[data-style="gojo"] #gojo-fallback svg{width:100%;height:100%}
 html[data-style="gojo"] #gojo-hero{display:block!important;position:absolute;z-index:3;left:50%;top:45%;width:min(96vw,460px);height:auto;max-height:76vh;object-fit:contain;transform:translate(-50%,-50%);overflow:visible;filter:drop-shadow(0 0 24px rgba(104,143,255,.48));opacity:0;animation:gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards}
 html[data-style="gojo"] #gojo-copy{display:flex!important;position:absolute;z-index:4;left:0;right:0;bottom:max(5vh,30px);align-items:center;flex-direction:column;gap:5px;text-align:center;pointer-events:none;opacity:0;animation:gojoWords .75s ease-out 1.05s forwards}
 html[data-style="gojo"] #gojo-copy b{font:800 clamp(18px,4vw,28px)/1.2 var(--hf);letter-spacing:.38em;color:#b9d4ff;text-shadow:0 0 14px #668dff,0 0 32px #886bff}
@@ -867,6 +868,17 @@ function gojoIntro(){
  let cv=$("#sp");
  if(!cv){cv=document.createElement("canvas");cv.id="sp";sp.appendChild(cv)}
  const hero=$("#gojo-hero"),copy=$("#gojo-copy");
+ if(hero){
+  hero.onerror=()=>{
+   hero.style.display="none";
+   if(!$("#gojo-fallback")){
+    const fallback=document.createElement("div");fallback.id="gojo-fallback";
+    fallback.innerHTML='<svg viewBox="0 0 420 520" role="img" aria-label="五條悟風格白髮角色插畫" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gf" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#a9caff"/></linearGradient><radialGradient id="gb"><stop stop-color="#8fc8ff"/><stop offset="1" stop-color="#3456b8"/></radialGradient><linearGradient id="gj" x2="1" y2="1"><stop stop-color="#202d59"/><stop offset="1" stop-color="#080d21"/></linearGradient></defs><ellipse cx="210" cy="486" rx="155" ry="22" fill="#668cff" opacity=".22"/><path d="M91 520 Q104 375 174 350 L245 350 Q323 374 339 520Z" fill="url(#gj)" stroke="#8cb7ff" stroke-opacity=".5" stroke-width="3"/><path d="M169 355 L207 421 250 355 276 520 142 520Z" fill="#101a3a"/><path d="M171 354 L207 421 244 354" fill="none" stroke="#d6e5ff" stroke-width="7"/><path d="M136 198 Q126 92 213 79 Q307 87 293 210 L278 302 Q252 364 208 367 Q157 349 143 294Z" fill="#f1f6ff" stroke="#9bbcff" stroke-width="4"/><path d="M137 180 Q88 128 126 66 L166 112 169 28 207 92 226 12 251 98 291 39 285 119 331 82 296 176 276 144 251 183 225 137 196 185 172 140Z" fill="url(#gf)" stroke="#a8c9ff" stroke-width="4" stroke-linejoin="round"/><path d="M141 211 Q206 186 291 210 L283 254 Q214 241 145 258Z" fill="#090e22" stroke="#7daeff" stroke-width="4"/><path d="M166 233 Q207 218 254 234" fill="none" stroke="#91c9ff" stroke-width="5" opacity=".85"/><path d="M183 275 Q211 289 240 274" fill="none" stroke="#9eb8e8" stroke-width="4" stroke-linecap="round"/><path d="M152 351 Q205 385 263 350" fill="none" stroke="#d8e7ff" stroke-width="7"/><circle cx="315" cy="291" r="43" fill="#9a75ff" opacity=".17"/><circle cx="315" cy="291" r="26" fill="url(#gb)" stroke="#d7eaff" stroke-width="4"/><path d="M315 251 V331 M275 291 H355 M287 263 L343 319 M343 263 L287 319" stroke="#e7f2ff" stroke-width="3" opacity=".9"/></svg>';
+    sp.appendChild(fallback);
+   }
+  };
+  if(hero.complete&&hero.naturalWidth===0)hero.onerror();
+ }
  sp.classList.remove("off");document.documentElement.classList.remove("open");
  Object.assign(sp.style,{display:"flex",visibility:"visible",opacity:"1",pointerEvents:"auto",zIndex:"80",animation:"none"});
  Object.assign(cv.style,{display:"block",position:"absolute",inset:"0",width:"100%",height:"100%",zIndex:"2"});
