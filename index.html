@@ -319,6 +319,20 @@ html[data-style="azure"] #splash b{opacity:0;animation:bin .8s 1.75s forwards;po
 html[data-style="azure"] #splash{transition:opacity .7s}
 html[data-style="azure"] #splash.off .sig{animation:bursto .5s ease-in forwards}
 html[data-style="azure"] #splash{animation-delay:3.8s}
+
+.tz,.tz2,.dm{position:fixed;pointer-events:none;z-index:90}
+.tz{width:46px;height:46px;margin:-23px;background:radial-gradient(circle,#fff 0,#8ad0ff 14%,rgba(56,210,255,0) 60%);-webkit-mask:conic-gradient(from 0deg,#000 0 4%,transparent 4% 22%,#000 22% 28%,transparent 28% 47%,#000 47% 53%,transparent 53% 72%,#000 72% 78%,transparent 78% 97%,#000 97%);mask:conic-gradient(from 0deg,#000 0 4%,transparent 4% 22%,#000 22% 28%,transparent 28% 47%,#000 47% 53%,transparent 53% 72%,#000 72% 78%,transparent 78% 97%,#000 97%);filter:drop-shadow(0 0 6px #38d2ff);animation:tzs .7s ease-out forwards}
+@keyframes tzs{0%{transform:scale(.2) rotate(0);opacity:1}40%{transform:scale(1.15) rotate(25deg);opacity:1}100%{transform:scale(1.6) rotate(60deg);opacity:0}}
+.tz2{width:16px;height:16px;margin:-8px;border-radius:50%;border:1.5px solid rgba(160,220,255,.9);box-shadow:0 0 12px rgba(56,210,255,.7);animation:tzr .75s cubic-bezier(.1,.7,.3,1) forwards}
+@keyframes tzr{to{transform:scale(5.5);opacity:0;border-width:.3px}}
+.dm{width:6px;height:6px;margin:-3px;background:#bfe6ff;transform:rotate(45deg);box-shadow:0 0 8px #38d2ff;animation:dmf .8s ease-out forwards}
+@keyframes dmf{to{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(225deg) scale(.1)}}
+html[data-style="azure"] button:not(.fab){position:relative;overflow:hidden;transition:transform .15s,box-shadow .25s,border-color .25s;background-image:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,0) 55%)}
+html[data-style="azure"] button:not(.fab):not(.pri):hover{border-color:rgba(138,208,255,.7);box-shadow:0 0 16px -2px rgba(56,210,255,.55),inset 0 0 12px rgba(74,168,255,.18)}
+html[data-style="azure"] button:not(.fab):active{transform:scale(.95);box-shadow:0 0 22px rgba(56,210,255,.75),inset 0 0 14px rgba(138,208,255,.4)}
+html[data-style="azure"] button:not(.fab):not(.pri)::before{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(190,230,255,.35),transparent);transform:skewX(-20deg);transition:left .55s}
+html[data-style="azure"] button:not(.fab):not(.pri):active::before,html[data-style="azure"] button:not(.fab):not(.pri):hover::before{left:130%}
+html[data-style="azure"] .fab{box-shadow:0 0 0 4px rgba(56,210,255,.15),0 0 24px rgba(56,210,255,.65)}
 .hide{display:none!important}
 .ovl{position:fixed;inset:0;background:#0007;display:flex;align-items:flex-end;justify-content:center}
 #ov{z-index:9}#dlg{z-index:10}#ob{z-index:14}
@@ -423,7 +437,7 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-21.4";
+const VER="2026-11-21.5";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
@@ -845,6 +859,51 @@ function jjkIntro(){
   requestAnimationFrame(frame)}
  requestAnimationFrame(frame)}
 
+function azureIntro(){
+ const sp=$("#splash"),cv=$("#sp"),c=cv.getContext("2d");
+ const dpr=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
+ cv.width=W*dpr;cv.height=H*dpr;
+ const cx=W/2,cy=H*.44,k=Math.min(1.3,Math.max(.75,W/430)),R=Math.min(W*.36,H*.26,230)*Math.max(.9,k*.95);
+ const TOFF=2.55,TEND=3.6,rnd=(a,b)=>a+Math.random()*(b-a);
+ const stars=Array.from({length:90},()=>({x:rnd(0,W),y:rnd(0,H),r:rnd(.4,1.6),p:rnd(0,6.28),s:rnd(1,3)}));
+ const N=12,ring=Array.from({length:N},(_,i)=>({a:i/N*6.2832,t:.15+i*.1,from:[rnd(0,W),-20-rnd(0,80)]}));
+ let t0=0,off=false;
+ const rg=(x,y,r,a0,a1)=>{const g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,a0);g.addColorStop(1,a1);return g};
+ function frame(now){
+  if(!t0)t0=now;const t=(now-t0)/1000;
+  c.setTransform(dpr,0,0,dpr,0,0);c.globalCompositeOperation="source-over";
+  const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,"#040a18");bg.addColorStop(1,"#0b2347");c.fillStyle=bg;c.fillRect(0,0,W,H);
+  c.globalCompositeOperation="lighter";
+  /* 極光帶 */
+  const au=Math.min(1,t/1.2)*(t>2.2?Math.max(0,1-(t-2.2)/1):1);
+  for(let b=0;b<3;b++){c.beginPath();for(let x=0;x<=W;x+=12){const y=H*(.3+b*.11)+Math.sin(x/(110+b*40)+t*(.9+b*.3)+b)*28*k;x?c.lineTo(x,y):c.moveTo(x,y)}
+   c.strokeStyle=`rgba(${b?90:56},${b?160:210},255,${.10*au})`;c.lineWidth=(34+b*14)*k;c.shadowColor="#38d2ff";c.shadowBlur=30;c.stroke();c.shadowBlur=0}
+  /* 星空 */
+  stars.forEach(o=>{const a=(.35+.65*Math.abs(Math.sin(t*o.s+o.p)))*Math.min(1,t/.5);c.fillStyle=`rgba(200,225,255,${a})`;c.beginPath();c.arc(o.x,o.y,o.r*k,0,6.2832);c.fill()});
+  /* 中心月暈 */
+  const m=Math.min(1,Math.max(0,(t-.4)/1.2)),mo=m*m*(3-2*m);
+  c.fillStyle=rg(cx,cy,R*1.9,`rgba(74,168,255,${.28*mo})`,"rgba(74,168,255,0)");c.beginPath();c.arc(cx,cy,R*1.9,0,6.2832);c.fill();
+  /* 星座圈：流星落下→連線 */
+  const rot=t*.22,pts=ring.map(o=>{const u=Math.min(1,Math.max(0,(t-o.t)/.6)),e=1-Math.pow(1-u,3),a=o.a+rot,ex=cx+Math.cos(a)*R,ey=cy+Math.sin(a)*R;
+   return{x:o.from[0]+(ex-o.from[0])*e,y:o.from[1]+(ey-o.from[1])*e,u,fx:ex,fy:ey}});
+  pts.forEach((p,i)=>{if(p.u>0&&p.u<1){c.strokeStyle=`rgba(150,215,255,${.5*(1-p.u)})`;c.lineWidth=1.5*k;c.beginPath();c.moveTo(p.x,p.y);c.lineTo(p.x-(p.fx-ring[i].from[0])*.12,p.y-(p.fy-ring[i].from[1])*.12);c.stroke()}});
+  const ex=t>1.75?Math.min(1,(t-1.75)/.8):0;
+  c.lineWidth=1.2*k;
+  pts.forEach((p,i)=>{const q=pts[(i+1)%N],l=Math.min(p.u,q.u);if(l>=1){c.strokeStyle=`rgba(138,208,255,${.55*(1-ex)})`;c.beginPath();c.moveTo(p.x,p.y);c.lineTo(q.x,q.y);c.stroke();
+    const q2=pts[(i+4)%N];c.strokeStyle=`rgba(138,208,255,${.16*(1-ex)})`;c.beginPath();c.moveTo(p.x,p.y);c.lineTo(q2.x,q2.y);c.stroke()}});
+  pts.forEach(p=>{if(p.u<=0)return;const r=(3+2.2*Math.sin(t*4+p.fx))*k*(1-ex*.5);c.fillStyle=rg(p.x,p.y,r*4,`rgba(255,255,255,${.95*p.u})`,"rgba(74,168,255,0)");c.beginPath();c.arc(p.x,p.y,r*4,0,6.2832);c.fill()});
+  /* 蒼 */
+  const ga=Math.min(1,Math.max(0,(t-1)/.7))*(1-ex*.6);
+  if(ga>0){c.globalCompositeOperation="source-over";c.font=`900 ${130*k}px "Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif`;c.textAlign="center";c.textBaseline="middle";c.shadowColor="#38d2ff";c.shadowBlur=26;c.fillStyle=`rgba(225,242,255,${ga})`;c.fillText("蒼",cx,cy+6);c.shadowBlur=0;c.globalCompositeOperation="lighter"}
+  /* 綻放：柔和水波＋光暈（不用白閃） */
+  if(ex>0){const a=t-1.75;
+   for(let i=0;i<3;i++){const ag=a-i*.18;if(ag<0)continue;const al=Math.max(0,1-ag/1.1);c.strokeStyle=`rgba(${i?120:150},${i?190:230},255,${al*.8})`;c.lineWidth=(5-i)*k;c.beginPath();c.arc(cx,cy,R*(1+ag*2.3),0,6.2832);c.stroke()}
+   c.fillStyle=rg(cx,cy,R*(1.2+a*2.4),`rgba(190,230,255,${.55*(1-ex*.9)})`,"rgba(56,210,255,0)");c.beginPath();c.arc(cx,cy,R*(1.2+a*2.4),0,6.2832);c.fill()}
+  if(t>=TOFF&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
+  if(t>=TEND){sp.remove();document.documentElement.classList.remove("open");return}
+  requestAnimationFrame(frame)}
+ requestAnimationFrame(frame)}
+
 /* ---------- 安裝到手機 ---------- */
 const standalone=()=>matchMedia("(display-mode:standalone)").matches||navigator.standalone===true;
 const installable=()=>/^https?:/.test(location.protocol)&&(location.hostname.endsWith("github.io")||location.hostname==="localhost")&&!standalone();
@@ -887,7 +946,9 @@ addEventListener("resize",()=>{if(dots.length)fxInit()});
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)fxStart()});
 document.addEventListener("pointerdown",e=>{if(!fxOn())return;
  const add=(el,ms)=>{el.style.left=e.clientX+"px";el.style.top=e.clientY+"px";document.body.appendChild(el);setTimeout(()=>el.remove(),ms)};
- if(isJ()){const r=document.createElement("i");r.className="tap";add(r,700);
+ if(ST.style==="azure"){const z=document.createElement("i");z.className="tz";add(z,800);const z2=document.createElement("i");z2.className="tz2";add(z2,800);
+  for(let k=0;k<6;k++){const a=k/6*6.28+Math.random()*.6,dd=30+Math.random()*30,p=document.createElement("b");p.className="dm";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+22+"px");add(p,800)}}
+ else if(isJ()){const r=document.createElement("i");r.className="tap";add(r,700);
   for(let k=0;k<7;k++){const a=k/7*6.28+Math.random(),dd=26+Math.random()*26,p=document.createElement("b");p.className="sp";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
  else{const c=document.createElement("i");c.className="cut";c.style.setProperty("--r",(-65+Math.random()*50)+"deg");add(c,520);
   for(let k=0;k<4;k++){const a=k/4*6.28+Math.random()*.8,dd=30+Math.random()*26,p=document.createElement("b");p.className="sk";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
@@ -938,7 +999,7 @@ setInterval(tick,30000);setInterval(()=>{if(!document.hidden&&/^https?:/.test(lo
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAll();tick();if(/^https?:/.test(location.protocol)&&Date.now()-lastChk>5*60e3)checkUpdate(false)}});
 
 applyStyle();
-if(isJ()&&!reduceMo())jjkIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
+if(!reduceMo()&&ST.style==="azure")azureIntro();else if(ST.style==="jjk"&&!reduceMo())jjkIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
 if(ST.onboard&&ST.pe&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
