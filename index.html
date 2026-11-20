@@ -459,18 +459,16 @@ html[data-style="gojo"] #splash #gojo-fallback{display:none!important}
 <input id="imp" type="file" accept=".json,application/json" hidden>
 
 <script>
-const VER="2026-11-21.2";
+const VER="2026-11-21.3";
 const CATS=[["學習","--c0"],["申請","--c1"],["運動","--c2"],["其他","--c3"]],WD="日一二三四五六",HH=48;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
-let S={ev:[],td:[],mt:[]},ST={style:"gojo",view:"m",onboard:0,lastBackup:0};
+let S={ev:[],td:[],mt:[]},ST={style:"ninja",view:"m",onboard:0,lastBackup:0};
 try{Object.assign(S,JSON.parse(localStorage.getItem("cal1"))||{})}catch(e){}
 try{Object.assign(ST,JSON.parse(localStorage.getItem("cal_set"))||{})}catch(e){}
 S.ev=S.ev||[];S.td=S.td||[];S.mt=S.mt||[];
 const save=()=>{try{localStorage.setItem("cal1",JSON.stringify(S))}catch(e){note("儲存空間已滿，請先備份並清理",6000)}};
 const saveST=()=>{try{localStorage.setItem("cal_set",JSON.stringify(ST))}catch(e){}};
-// Gojo theme rollout: migrate the previous default once; users can still switch themes in Settings.
-if(ST.gojoThemeRollout!==3){ST.style="gojo";ST.gojoThemeRollout=3;saveST()}
 const pad=n=>String(n).padStart(2,"0"),fmt=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()),today=()=>fmt(new Date());
 const parse=s=>{const[a,b,c]=s.split("-").map(Number);return new Date(a,b-1,c)};
 const addD=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return fmt(d)};
