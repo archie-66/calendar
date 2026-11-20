@@ -130,7 +130,19 @@ html[data-style="ninja"] #ind{border-radius:7px}
 .fab span{position:relative}
 html[data-style="ninja"] .fab .shk{display:block}
 html[data-style="jjk"]{color-scheme:dark;--bg:#0a0a15;--sheet:#14142b;--g1:#0a0a15;--g2:#0e0b22;--g3:#0a0a15;--card:#12122a;--tx:#ecebff;--mut:#9d9bc9;--bd:#2b2b52;--sh:0 0 0 1px rgba(124,107,255,.14),0 12px 30px -16px rgba(96,72,255,.55);--ac:#7c6bff;--acon:#fff;--on:#0a0a15;--warn:#ff4d6d;--c0:#8fa0ff;--c1:#ff7a96;--c2:#6fe0c0;--c3:#ffd27a;--r:4px;--rr:3px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
-html[data-style="jjk"] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 88% 4%,rgba(124,107,255,.28),transparent 42%),radial-gradient(circle at 6% 96%,rgba(61,123,255,.2),transparent 45%),repeating-linear-gradient(115deg,transparent 0 38px,rgba(124,107,255,.045) 38px 39px)}
+html[data-style="gojo"]{color-scheme:dark;--bg:#070d1b;--sheet:#101d35;--g1:#071326;--g2:#10152e;--g3:#080b19;--card:#101b32;--tx:#eef5ff;--mut:#9bb2d4;--bd:#263d61;--sh:0 0 0 1px rgba(83,160,255,.18),0 12px 34px -16px rgba(74,112,255,.55);--ac:#67a9ff;--acon:#071326;--on:#071326;--warn:#ff557d;--c0:#72b8ff;--c1:#ff779b;--c2:#8ee8df;--c3:#c5a5ff;--r:10px;--rr:7px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
+html[data-style="gojo"] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 82% 8%,rgba(72,151,255,.3),transparent 42%),radial-gradient(ellipse at 8% 92%,rgba(255,66,120,.18),transparent 38%),radial-gradient(ellipse at 50% 50%,rgba(127,94,255,.09),transparent 60%),repeating-linear-gradient(135deg,transparent 0 46px,rgba(130,180,255,.035) 46px 47px)}
+html[data-style="gojo"] body::after{content:"茈";position:fixed;right:-10px;bottom:68px;font:900 230px/1 var(--hf);color:#9b8aff;opacity:.055;pointer-events:none;z-index:0}
+html[data-style="gojo"] button,html[data-style="gojo"] .ib,html[data-style="gojo"] .ck,html[data-style="gojo"] .seg,html[data-style="gojo"] .day b,html[data-style="gojo"] .tlh .dh b,html[data-style="gojo"] input,html[data-style="gojo"] select,html[data-style="gojo"] textarea,html[data-style="gojo"] #ind{border-radius:8px}
+html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{background:linear-gradient(120deg,#398cff 0%,#8067ff 52%,#e94d8b 100%);border-color:transparent;box-shadow:0 0 20px rgba(93,139,255,.42)}
+html[data-style="gojo"] #ind{background:linear-gradient(120deg,#398cff,#8067ff 55%,#e94d8b);box-shadow:0 0 16px rgba(93,139,255,.5)}
+html[data-style="gojo"] .tabs{border-radius:10px;box-shadow:0 0 0 1px rgba(93,139,255,.25),0 10px 30px -10px rgba(72,112,255,.45)}
+html[data-style="gojo"] .sheet{border-radius:12px 12px 0 0;border-top:2px solid #67a9ff;box-shadow:0 -10px 40px -10px rgba(93,139,255,.4)}
+html[data-style="gojo"] h2::before{content:"";display:inline-block;width:4px;height:.9em;background:linear-gradient(#67c7ff,#a18aff,#ff779b);margin-right:8px;vertical-align:-1px;box-shadow:0 0 9px #758cff}
+html[data-style="gojo"] #splash b{color:#edf5ff;text-shadow:0 0 14px #67a9ff,0 0 28px #8c73ff}
+html[data-style="gojo"] #sp{display:block}
+html[data-style="gojo"] #splash{background:radial-gradient(ellipse at center,#17274c 0%,#090e20 58%,#060913 100%)}
+html[data-style="jjk"] body::before{html[data-style="jjk"] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 88% 4%,rgba(124,107,255,.28),transparent 42%),radial-gradient(circle at 6% 96%,rgba(61,123,255,.2),transparent 45%),repeating-linear-gradient(115deg,transparent 0 38px,rgba(124,107,255,.045) 38px 39px)}
 html[data-style="jjk"] body::after{content:"呪";position:fixed;right:-12px;bottom:70px;font:900 220px/1 var(--hf);color:#7c6bff;opacity:.05;pointer-events:none;z-index:0}
 html[data-style="jjk"] button,html[data-style="jjk"] .ib,html[data-style="jjk"] .ck,html[data-style="jjk"] .seg,html[data-style="jjk"] .day b,html[data-style="jjk"] .tlh .dh b,html[data-style="jjk"] input,html[data-style="jjk"] select,html[data-style="jjk"] textarea,html[data-style="jjk"] #ind{border-radius:4px}
 html[data-style="jjk"] .pri,html[data-style="jjk"] .fab{background:linear-gradient(135deg,#6a4dff,#3d7bff);border-color:transparent;box-shadow:0 0 18px rgba(106,77,255,.55)}
@@ -222,6 +234,11 @@ html[data-style="ninja"] #splash.off .ldr{animation:bursto .5s ease-in forwards}
 @keyframes cutk{40%{transform:rotate(var(--r)) scaleX(1);opacity:1}100%{transform:rotate(var(--r)) scaleX(1.15);opacity:0}}
 .sk{position:fixed;width:11px;height:11px;margin:-5.5px;background:#e0384b;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);pointer-events:none;z-index:90;animation:skk .6s ease-out forwards}
 @keyframes skk{to{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(540deg) scale(.4)}}
+.purple-tap{position:fixed;width:42px;height:42px;margin:-21px;border-radius:50%;border:2px solid #b6a5ff;box-shadow:0 0 12px #7e80ff,0 0 28px #6aaeff,inset 0 0 14px #f1eaff;pointer-events:none;z-index:90;animation:purplePulse .85s ease-out forwards}
+@keyframes purplePulse{to{transform:scale(3.8);opacity:0}}
+.purple-sp{position:fixed;width:8px;height:8px;margin:-4px;border-radius:50%;background:radial-gradient(circle,#fff 0 18%,#9c8aff 35%,#55aaff 68%,transparent 75%);box-shadow:0 0 12px #8d8cff;pointer-events:none;z-index:90;animation:purpleSpark .8s ease-out forwards}
+@keyframes purpleSpark{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.25)}}
+
 @media (prefers-reduced-motion:reduce){html[data-style="ninja"] *,html[data-style="ninja"] *::before,html[data-style="ninja"] *::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
 html[data-style="ninja"] .fab{border-radius:50%}
 .sig{display:none;width:min(82vw,380px);height:auto;color:#8fa0ff;filter:drop-shadow(0 0 8px #6a4dff);overflow:visible}
@@ -719,7 +736,7 @@ async function persist(){try{if(navigator.storage&&navigator.storage.persist)ret
 function openSettings(){
  const bk=ST.lastBackup?new Date(ST.lastBackup).toLocaleString("zh-TW",{hour12:false}):"還沒備份過";
  const pb=openPanel("設定",`
- <h2>外觀</h2><div class="seg" style="max-width:none"><button data-s="ninja">🥷 忍者</button><button data-s="jjk">🌀 咒術</button><button data-s="calm">🌿 柔和</button></div>
+ <h2>外觀</h2><div class="seg" style="max-width:none"><button data-s="ninja">🥷 忍者</button><button data-s="jjk">🌀 咒術</button><button data-s="gojo">🟣 五條悟</button><button data-s="calm">🌿 柔和</button></div>
  <h2>安裝到手機</h2><div class="card sg"><div class="mut">${standalone()?"已安裝在這支手機上 ✓":"加到主畫面後，打開就像一般 App：全螢幕、有自己的圖示。"}</div><button id="s-inst">📲 ${standalone()?"已安裝":"安裝／查看步驟"}</button></div>
  <h2>備份</h2><div class="card sg"><div class="mut">上次備份：${bk}</div><div class="two"><button id="s-bk" class="pri">備份到檔案</button><button id="s-im">匯入備份</button></div><div class="mut">按「備份」會跳出分享選單，選「儲存到檔案」再選 iCloud Drive，換 iPad 時用「匯入備份」就能還原。照片會一起備份，影片太大不包含，請留相簿原檔。</div></div>
  <h2>提醒與 iOS 行事曆</h2><div class="card sg"><div class="mut">網頁版沒辦法在背景響鈴。把行程加進 iOS 行事曆，就會用系統的提醒。單一行程可在編輯畫面按「🔔 加到 iOS 行事曆」。</div><button id="s-ics">把全部行程匯出到 iOS 行事曆</button></div>
@@ -738,15 +755,15 @@ $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=o
 
 /* ---------- style ---------- */
 function setStyle(s){ST.style=s;saveST();applyStyle()}
-function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
+function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=(ST.style==="jjk"||ST.style==="gojo")?"#070d1b":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
 
 /* ---------- 咒術開場：雙能量球融合爆開 ---------- */
-function jjkIntro(){
+function jjkIntro(label){
  const sp=$("#splash"),cv=$("#sp"),c=cv.getContext("2d");
  const dpr=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
  cv.width=W*dpr;cv.height=H*dpr;
  const cx=W/2,cy=H*.46,R0=Math.min(W*.46,Math.max(260,H*.34)),k=Math.min(1.3,Math.max(.75,W/430));
- const TM=1.55,TOFF=1.95,TEND=3.1,TEAL=[84,128,255],AMB=[204,98,255],VIO=[140,108,255],WH=[255,255,255];
+ const isGojo=document.documentElement.dataset.style==="gojo",TM=1.55,TOFF=1.95,TEND=3.1,TEAL=isGojo?[55,145,255]:[84,128,255],AMB=isGojo?[255,70,120]:[204,98,255],VIO=isGojo?[145,105,255]:[140,108,255],WH=[255,255,255];
  const col=(a,al)=>`rgba(${a[0]},${a[1]},${a[2]},${Math.max(0,Math.min(1,al))})`,rnd=(a,b)=>a+Math.random()*(b-a);
  const hist=[[],[]];let parts=[],boomed=false,off=false,t0=0,last=0;
  const rays=Array.from({length:40},(_,i)=>({a:i/40*6.2832+rnd(-.08,.08),l:rnd(.6,1.2),w:rnd(1,3)}));
@@ -787,7 +804,7 @@ function jjkIntro(){
   c.restore();
   /* 白閃 */
   if(t>=TM){const a=t-TM,f=a<.07?a/.07:Math.max(0,1-(a-.07)/.45);c.globalCompositeOperation="source-over";c.fillStyle=col([235,230,255],f*.78);c.fillRect(0,0,W,H)}
-  if(t>=TM){const a=t-TM,ka=1-(a-.04)/.8;if(ka>0){c.save();c.globalCompositeOperation="source-over";c.font=`900 ${170*k*(1+a*.45)}px "Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif`;c.textAlign="center";c.textBaseline="middle";c.shadowColor="#ffffff";c.shadowBlur=30;c.fillStyle=col([160,140,255],ka);c.fillText("呪",cx,cy+8);c.shadowColor="#6a4dff";c.shadowBlur=18;c.fillText("呪",cx,cy+8);c.restore()}}
+  if(t>=TM){const a=t-TM,ka=1-(a-.04)/.8;if(ka>0){c.save();c.globalCompositeOperation="source-over";c.font=`900 ${170*k*(1+a*.45)}px "Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif`;c.textAlign="center";c.textBaseline="middle";c.shadowColor="#ffffff";c.shadowBlur=30;c.fillStyle=col([160,140,255],ka);c.fillText(label||"呪",cx,cy+8);c.shadowColor="#6a4dff";c.shadowBlur=18;c.fillText(label||"呪",cx,cy+8);c.restore()}}
   if(t>=TOFF&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
   if(t>=TEND){sp.remove();document.documentElement.classList.remove("open");return}
   requestAnimationFrame(frame)}
@@ -807,7 +824,7 @@ async function installApp(){
 
 /* ---------- 風格特效（咒術／忍者）---------- */
 const reduceMo=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
-const fxOn=()=>(ST.style==="jjk"||ST.style==="ninja")&&!reduceMo();
+const fxOn=()=>(ST.style==="jjk"||ST.style==="ninja"||ST.style==="gojo")&&!reduceMo();
 const fx=document.createElement("canvas");fx.id="fx";document.body.prepend(fx);
 const fc=fx.getContext("2d");let fW=0,fH=0,dots=[],slash=null,thr=null,fxRun=false,fxT=0;
 function fxSize(){const d=Math.min(2,devicePixelRatio||1);fW=fx.width=innerWidth*d;fH=fx.height=innerHeight*d;fx._d=d}
@@ -837,6 +854,7 @@ document.addEventListener("pointerdown",e=>{if(!fxOn())return;
  const add=(el,ms)=>{el.style.left=e.clientX+"px";el.style.top=e.clientY+"px";document.body.appendChild(el);setTimeout(()=>el.remove(),ms)};
  if(ST.style==="jjk"){const r=document.createElement("i");r.className="tap";add(r,700);
   for(let k=0;k<7;k++){const a=k/7*6.28+Math.random(),dd=26+Math.random()*26,p=document.createElement("b");p.className="sp";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
+ else if(ST.style==="gojo"){const r=document.createElement("i");r.className="purple-tap";add(r,950);for(let k=0;k<12;k++){const a=k/12*6.283+Math.random()*.25,dd=32+Math.random()*48,p=document.createElement("b");p.className="purple-sp";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,850)}}
  else{const c=document.createElement("i");c.className="cut";c.style.setProperty("--r",(-65+Math.random()*50)+"deg");add(c,520);
   for(let k=0;k<4;k++){const a=k/4*6.28+Math.random()*.8,dd=30+Math.random()*26,p=document.createElement("b");p.className="sk";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
 },{passive:true});
@@ -886,7 +904,7 @@ setInterval(tick,30000);setInterval(()=>{if(!document.hidden&&/^https?:/.test(lo
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAll();tick();if(/^https?:/.test(location.protocol)&&Date.now()-lastChk>5*60e3)checkUpdate(false)}});
 
 applyStyle();
-if(ST.style==="jjk"&&!reduceMo())jjkIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
+if((ST.style==="jjk"||ST.style==="gojo")&&!reduceMo())jjkIntro(ST.style==="gojo"?"茈":"呪");else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
 if(ST.onboard&&ST.pe&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
