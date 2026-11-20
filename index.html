@@ -131,7 +131,16 @@ html[data-style="ninja"] #ind{border-radius:7px}
 html[data-style="ninja"] .fab .shk{display:block}
 html[data-style="jjk"]{color-scheme:dark;--bg:#0a0a15;--sheet:#14142b;--g1:#0a0a15;--g2:#0e0b22;--g3:#0a0a15;--card:#12122a;--tx:#ecebff;--mut:#9d9bc9;--bd:#2b2b52;--sh:0 0 0 1px rgba(124,107,255,.14),0 12px 30px -16px rgba(96,72,255,.55);--ac:#7c6bff;--acon:#fff;--on:#0a0a15;--warn:#ff4d6d;--c0:#8fa0ff;--c1:#ff7a96;--c2:#6fe0c0;--c3:#ffd27a;--r:4px;--rr:3px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
 html[data-style="gojo"]{color-scheme:dark;--bg:#071326;--sheet:#101d35;--g1:#071326;--g2:#10152e;--g3:#080b19;--card:#101b32;--tx:#eef5ff;--mut:#9bb2d4;--bd:#263d61;--sh:0 0 0 1px rgba(83,160,255,.18),0 12px 34px -16px rgba(74,112,255,.55);--ac:#67a9ff;--acon:#071326;--on:#071326;--warn:#ff557d;--c0:#72b8ff;--c1:#ff779b;--c2:#8ee8df;--c3:#c5a5ff;--r:10px;--rr:7px;--hf:"Songti TC","Noto Serif TC","Hiragino Mincho ProN",serif}
-html[data-style="gojo"] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 82% 8%,rgba(72,151,255,.3),transparent 42%),radial-gradient(ellipse at 8% 92%,rgba(255,66,120,.18),transparent 38%),radial-gradient(ellipse at 50% 50%,rgba(127,94,255,.09),transparent 60%),repeating-linear-gradient(135deg,transparent 0 46px,rgba(130,180,255,.035) 46px 47px)}
+html[data-style="gojo"] body{background:#040611}
+html[data-style="gojo"] body::before{content:"";position:fixed;inset:-18%;pointer-events:none;z-index:0;background:
+radial-gradient(ellipse at 50% 48%,rgba(126,112,255,.22),transparent 18%),
+radial-gradient(ellipse at 50% 48%,transparent 0 20%,rgba(88,139,255,.12) 20.2% 20.4%,transparent 20.8% 29%,rgba(162,111,255,.10) 29.2% 29.4%,transparent 29.8% 39%,rgba(103,146,255,.08) 39.2% 39.4%,transparent 40%),
+repeating-radial-gradient(ellipse at 50% 48%,rgba(160,185,255,.09) 0 1px,transparent 1px 42px),
+conic-gradient(from 18deg at 50% 48%,transparent 0 24deg,rgba(92,130,255,.13) 26deg,transparent 34deg 78deg,rgba(175,118,255,.12) 82deg,transparent 91deg 154deg,rgba(97,170,255,.12) 158deg,transparent 168deg 250deg,rgba(176,110,255,.1) 254deg,transparent 264deg),
+radial-gradient(ellipse at 50% 50%,#17234b 0%,#0b1028 45%,#040611 78%);background-size:100% 100%;animation:domainDrift 34s linear infinite alternate}
+html[data-style="gojo"] body::after{content:"無量空處";position:fixed;right:-.04em;bottom:58px;font:900 clamp(56px,13vw,160px)/1 var(--hf);letter-spacing:.16em;color:#a6b8ff;opacity:.055;pointer-events:none;z-index:0;writing-mode:vertical-rl;text-shadow:0 0 36px #6f78ff}
+@keyframes domainDrift{0%{filter:hue-rotate(0deg) brightness(.85);background-position:0 0}100%{filter:hue-rotate(22deg) brightness(1.15);background-position:2% -1%}}
+
 html[data-style="gojo"] body::after{content:"茈";position:fixed;right:-10px;bottom:68px;font:900 230px/1 var(--hf);color:#9b8aff;opacity:.07;pointer-events:none;z-index:0;animation:gojoPulse 4s ease-in-out infinite}
 @keyframes gojoPulse{50%{opacity:.14;text-shadow:0 0 35px #7d8dff}}
 html[data-style="gojo"] button,html[data-style="gojo"] .ib,html[data-style="gojo"] .ck,html[data-style="gojo"] .seg,html[data-style="gojo"] .day b,html[data-style="gojo"] .tlh .dh b,html[data-style="gojo"] input,html[data-style="gojo"] select,html[data-style="gojo"] textarea,html[data-style="gojo"] #ind{border-radius:8px}
@@ -331,18 +340,97 @@ html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;in
 html[data-style="gojo"] #splash.off{transition:opacity .7s}
 html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{overflow:hidden;transition:transform .18s,filter .18s,box-shadow .18s}
 html[data-style="gojo"] .pri:active,html[data-style="gojo"] .fab:active{transform:scale(.96);filter:brightness(1.35);box-shadow:0 0 28px rgba(110,170,255,.8),0 0 42px rgba(190,90,255,.45)}
-.gojo-tap{position:fixed;width:22px;height:22px;margin:-11px;border:2px solid #e8f7ff;border-radius:50%;pointer-events:none;z-index:95;box-shadow:0 0 10px #fff,0 0 24px #62b9ff,0 0 42px #9b65ff;animation:gojoTap .78s cubic-bezier(.12,.7,.2,1) forwards}
-.gojo-tap:before,.gojo-tap:after{content:"";position:absolute;inset:-9px;border:1px solid rgba(121,190,255,.9);border-radius:50%;transform:scale(.35);animation:gojoOrbit .78s ease-out forwards}
-.gojo-tap:after{inset:-17px;border-color:rgba(205,137,255,.8);border-style:dashed;animation:gojoOrbit .95s ease-out forwards reverse}
+.gojo-tap{position:fixed;width:20px;height:20px;margin:-10px;border:2px solid #f1f7ff;border-radius:50%;pointer-events:none;z-index:95;box-shadow:0 0 12px #fff,0 0 26px #62b9ff,0 0 48px #9b65ff;animation:gojoTap .82s cubic-bezier(.12,.7,.2,1) forwards}
+.gojo-tap:before,.gojo-tap:after{content:"";position:absolute;inset:-12px;border:2px solid rgba(125,193,255,.92);border-radius:50%;transform:scale(.2) rotate(0);animation:gojoOrbit .82s cubic-bezier(.16,.8,.2,1) forwards}
+.gojo-tap:after{inset:-23px;border-color:rgba(205,151,255,.9);border-style:dashed;animation:gojoOrbit 1.05s ease-out forwards reverse}
 .gojo-spark{position:fixed;width:7px;height:7px;margin:-3.5px;background:linear-gradient(135deg,#fff 0%,#9de7ff 42%,#b38aff 100%);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);pointer-events:none;z-index:95;filter:drop-shadow(0 0 5px #75caff);animation:gojoSpark .78s cubic-bezier(.12,.7,.2,1) forwards}
 @keyframes gojoTap{35%{transform:scale(1.5);opacity:1}to{transform:scale(4.5);opacity:0;border-color:#e6aaff}}
 @keyframes gojoOrbit{to{transform:scale(3.4) rotate(100deg);opacity:0}}
 @keyframes gojoSpark{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.05) rotate(160deg)}}
 @media(prefers-reduced-motion:reduce){html[data-style="gojo"] .gojo-tap,html[data-style="gojo"] .gojo-spark{animation-duration:.01ms!important}}
+
+/* Gojo / Unlimited Void interface layer */
+html[data-style="gojo"] #fx{display:block}
+html[data-style="gojo"] .card,html[data-style="gojo"] .row,html[data-style="gojo"] .sheet,html[data-style="gojo"] .tabs,html[data-style="gojo"] .banner,html[data-style="gojo"] .nt{background:linear-gradient(145deg,rgba(22,31,72,.84),rgba(7,12,34,.91));border-color:rgba(143,164,255,.22);box-shadow:inset 0 1px 0 rgba(221,232,255,.07),0 12px 34px -22px rgba(102,120,255,.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+html[data-style="gojo"] .hd h1{text-shadow:0 0 20px rgba(119,149,255,.6);letter-spacing:.08em}
+html[data-style="gojo"] .tabs{border:1px solid rgba(148,166,255,.3)}
+html[data-style="gojo"] .sheet{background:linear-gradient(160deg,rgba(19,28,65,.98),rgba(5,10,27,.98))}
+html[data-style="gojo"] .fab{right:20px!important;left:auto!important;bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
+html[data-style="gojo"] #splash{display:flex!important;visibility:visible!important;opacity:1;pointer-events:auto;background:radial-gradient(ellipse at 50% 50%,#1b285e 0%,#0b102c 52%,#02040c 100%);animation:none!important;overflow:hidden}
+html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{display:none!important}
+html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
+html[data-style="gojo"] #gojo-hero{display:block!important;position:absolute;z-index:3;left:50%;top:47%;width:min(96vw,680px);height:min(84vh,760px);transform:translate(-50%,-50%);overflow:visible;filter:drop-shadow(0 0 24px rgba(104,143,255,.48));opacity:0;animation:gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards}
+html[data-style="gojo"] #gojo-copy{display:flex!important;position:absolute;z-index:4;left:0;right:0;bottom:max(5vh,30px);align-items:center;flex-direction:column;gap:5px;text-align:center;pointer-events:none;opacity:0;animation:gojoWords .75s ease-out 1.05s forwards}
+html[data-style="gojo"] #gojo-copy b{font:800 clamp(18px,4vw,28px)/1.2 var(--hf);letter-spacing:.38em;color:#b9d4ff;text-shadow:0 0 14px #668dff,0 0 32px #886bff}
+html[data-style="gojo"] #gojo-copy strong{font:900 clamp(28px,7vw,52px)/1.2 var(--hf);letter-spacing:.2em;color:#fff;text-shadow:0 0 16px #9db8ff,0 0 40px #876bff}
+@keyframes gojoRise{0%{opacity:0;transform:translate(-50%,8%) scale(.78);filter:drop-shadow(0 0 0 transparent) blur(12px)}65%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:drop-shadow(0 0 24px rgba(104,143,255,.48))}}
+@keyframes gojoWords{from{opacity:0;transform:translateY(18px);letter-spacing:.8em}to{opacity:1;transform:none;letter-spacing:normal}}
+html[data-style="gojo"] #splash.off{opacity:0;transition:opacity .75s ease}
+html[data-style="gojo"] .fab{z-index:5}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="shk" viewBox="0 0 24 24"><path d="M12 1l3.1 7.9L23 12l-7.9 3.1L12 23l-3.1-7.9L1 12l7.9-3.1z" fill="currentColor"/><circle cx="12" cy="12" r="2.4" fill="var(--sheet)"/></symbol></svg>
-<div id="splash"><svg class="nin" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="sun" cx="100" cy="100" r="62"/><g class="thr tr3"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr2"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr1"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr t0"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><circle class="imp" cx="100" cy="100" r="20"/><text class="kj2" x="100" y="128" text-anchor="middle" font-size="84" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">忍</text><g class="cuts"><line pathLength="1" x1="-10" y1="38" x2="210" y2="152"/><line pathLength="1" x1="-10" y1="152" x2="210" y2="48"/><line pathLength="1" x1="34" y1="-10" x2="168" y2="210"/></g></svg><i class="sm" style="--x:-60px;--y:10px;--d:0s"></i><i class="sm" style="--x:55px;--y:-15px;--d:0.05s"></i><i class="sm" style="--x:-20px;--y:40px;--d:0.1s"></i><i class="sm" style="--x:30px;--y:35px;--d:0.12s"></i><i class="sm" style="--x:-75px;--y:-30px;--d:0.15s"></i><i class="sm" style="--x:70px;--y:30px;--d:0.18s"></i><i class="sm" style="--x:0px;--y:-45px;--d:0.08s"></i><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
+<div id="splash"><svg class="nin" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="sun" cx="100" cy="100" r="62"/><g class="thr tr3"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr2"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr tr1"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><g class="thr t0"><polygon points="0.0,-24.0 4.9,-4.9 24.0,0.0 4.9,4.9 0.0,24.0 -4.9,4.9 -24.0,0.0 -4.9,-4.9"/><circle r="3" class="hole"/></g><circle class="imp" cx="100" cy="100" r="20"/><text class="kj2" x="100" y="128" text-anchor="middle" font-size="84" font-weight="900" font-family="Songti TC,Noto Serif TC,Hiragino Mincho ProN,serif">忍</text><g class="cuts"><line pathLength="1" x1="-10" y1="38" x2="210" y2="152"/><line pathLength="1" x1="-10" y1="152" x2="210" y2="48"/><line pathLength="1" x1="34" y1="-10" x2="168" y2="210"/></g></svg><i class="sm" style="--x:-60px;--y:10px;--d:0s"></i><i class="sm" style="--x:55px;--y:-15px;--d:0.05s"></i><i class="sm" style="--x:-20px;--y:40px;--d:0.1s"></i><i class="sm" style="--x:30px;--y:35px;--d:0.12s"></i><i class="sm" style="--x:-75px;--y:-30px;--d:0.15s"></i><i class="sm" style="--x:70px;--y:30px;--d:0.18s"></i><i class="sm" style="--x:0px;--y:-45px;--d:0.08s"></i><svg id="gojo-hero" viewBox="0 0 620 700" role="img" aria-label="五條悟，白髮黑色眼罩，凝聚紫色能量">
+<defs>
+ <linearGradient id="ghair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".48" stop-color="#cfe4ff"/><stop offset="1" stop-color="#748bd2"/></linearGradient>
+ <linearGradient id="gcoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27365f"/><stop offset=".3" stop-color="#10182f"/><stop offset="1" stop-color="#030713"/></linearGradient>
+ <linearGradient id="gskin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe2d8"/><stop offset="1" stop-color="#c88e9f"/></linearGradient>
+ <radialGradient id="gorb"><stop stop-color="#fff"/><stop offset=".18" stop-color="#e1d9ff"/><stop offset=".45" stop-color="#a17cff"/><stop offset=".72" stop-color="#4c67ff"/><stop offset="1" stop-color="#20115b" stop-opacity="0"/></radialGradient>
+ <filter id="gglow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<ellipse cx="326" cy="640" rx="220" ry="34" fill="#506aff" opacity=".2" filter="url(#gglow)"/>
+<!-- energy trails -->
+<g fill="none" stroke-linecap="round" filter="url(#gglow)">
+ <path d="M74 518C5 440 82 352 164 330M405 135C535 118 604 214 566 313" stroke="#658cff" stroke-width="5" opacity=".65"/>
+ <path d="M80 576C10 450 99 365 190 342M420 158C556 145 594 247 546 350" stroke="#bd8aff" stroke-width="3" opacity=".7"/>
+</g>
+<!-- body and shoulders -->
+<path d="M160 695Q151 582 195 473L250 425 396 412 457 464Q505 570 501 700Z" fill="url(#gcoat)" stroke="#43588c" stroke-width="4"/>
+<path d="M222 475L260 423 320 454 384 416 425 476 379 700H237Z" fill="#080f22" stroke="#52669a" stroke-width="3"/>
+<!-- raised collar -->
+<path d="M225 452L242 350 310 379 377 347 405 459 358 516 270 510Z" fill="#111b39" stroke="#647bb5" stroke-width="4"/>
+<path d="M241 359L302 385 316 477 256 451Z" fill="#25345e"/>
+<path d="M378 356L324 386 318 477 389 448Z" fill="#1b2850"/>
+<!-- neck -->
+<path d="M265 343L273 404Q316 445 359 399L366 335Z" fill="url(#gskin)"/>
+<!-- face -->
+<path d="M230 205Q244 122 319 121Q400 122 414 213L400 315Q376 374 320 386Q260 368 238 310Z" fill="url(#gskin)" stroke="#9f819b" stroke-width="3"/>
+<path d="M241 260Q274 295 315 283Q367 294 405 256L400 308Q374 373 320 385Q262 365 240 311Z" fill="#d89eac" opacity=".22"/>
+<!-- ear -->
+<path d="M404 257Q448 235 440 285Q430 315 402 307" fill="url(#gskin)" stroke="#b7899c" stroke-width="3"/>
+<path d="M413 278Q429 267 426 289" fill="none" stroke="#a46f89" stroke-width="3"/>
+<!-- blindfold -->
+<path d="M217 218Q306 190 420 213L416 267Q317 288 231 260Z" fill="#090b18" stroke="#53658e" stroke-width="4"/>
+<path d="M233 225Q319 210 411 221" stroke="#758bbd" stroke-width="4" opacity=".55"/>
+<path d="M237 258Q317 279 414 259" stroke="#03040b" stroke-width="5"/>
+<!-- smirk -->
+<path d="M290 322Q321 339 352 318" fill="none" stroke="#8d5269" stroke-width="4" stroke-linecap="round"/>
+<path d="M312 332Q328 336 340 329" fill="none" stroke="#fff0ee" stroke-width="2" opacity=".8"/>
+<path d="M315 299L322 311 330 300" fill="none" stroke="#bd8795" stroke-width="2" opacity=".7"/>
+<!-- signature spiky white hair silhouette -->
+<path d="M221 251L180 222 204 210 164 170 215 180 185 115 242 151 250 58 287 129 320 26 344 128 403 61 392 151 452 119 421 184 468 180 421 221 408 265 382 223 364 198 347 240 323 199 300 246 277 207 256 252 240 219Z" fill="url(#ghair)" stroke="#8299d4" stroke-width="4" stroke-linejoin="round"/>
+<g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".88">
+ <path d="M235 211L204 170 228 183 220 126 260 181 281 93 295 173 321 56 331 176 380 101 357 184 427 148 384 208"/>
+ <path d="M258 226L245 179M295 217L286 163M352 215L371 164M393 227L416 192"/>
+</g>
+<g fill="none" stroke="#7189c7" stroke-width="3" opacity=".55">
+ <path d="M219 164L249 192M288 126L305 181M340 114L341 180M401 155L375 192"/>
+</g>
+<!-- extended arm & hand -->
+<path d="M394 492Q444 445 468 408L493 354Q502 334 516 345Q528 356 513 384L501 415Q546 383 562 403Q571 419 549 434L508 469Q479 518 438 548Z" fill="url(#gskin)" stroke="#a47b9a" stroke-width="4"/>
+<path d="M476 439Q494 422 514 424M469 456Q490 445 504 447" stroke="#a56e8f" stroke-width="3" fill="none"/>
+<!-- purple orb -->
+<g filter="url(#gglow)">
+ <circle cx="493" cy="376" r="88" fill="url(#gorb)" opacity=".9"/>
+ <circle cx="493" cy="376" r="47" fill="none" stroke="#d8c8ff" stroke-width="3" opacity=".85"/>
+ <ellipse cx="493" cy="376" rx="94" ry="29" transform="rotate(-28 493 376)" fill="none" stroke="#9b88ff" stroke-width="4"/>
+ <ellipse cx="493" cy="376" rx="78" ry="18" transform="rotate(45 493 376)" fill="none" stroke="#65aaff" stroke-width="3"/>
+ <circle cx="493" cy="376" r="8" fill="#fff"/>
+</g>
+<!-- wrist / glove shadows and jacket seam -->
+<path d="M163 695Q180 587 218 507L255 490 242 700M398 475L434 513 478 479" fill="none" stroke="#586da7" stroke-width="4" opacity=".55"/>
+</svg>
+<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong></div><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
 <div id="upd" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b class="big">有新版本可以更新</b><p class="mut" id="upd-t"></p><div class="two"><button id="upd-no">稍後</button><button class="pri" id="upd-go">立即更新</button></div></div></div>
 <div id="busy" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><div id="busy-t"></div></div></div>
 <div id="app">
@@ -824,33 +912,71 @@ function jjkIntro(){
  requestAnimationFrame(frame)}
 
 
-/* 五條悟開場：蒼與赫融合成虛式・茈並射出 */
+/* 五條悟開場：領域展開「無量空處」＋角色出場＋茈光爆 */
 function gojoIntro(){
- const sp=$("#splash"),cv=$("#sp");if(!sp||!cv)return;const c=cv.getContext("2d"),d=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
- cv.width=W*d;cv.height=H*d;const cx=W*.5,cy=H*.45,k=Math.min(1.25,Math.max(.72,W/430)),rnd=(a,b)=>a+Math.random()*(b-a);
- const stars=Array.from({length:110},()=>({x:Math.random()*W,y:Math.random()*H,z:rnd(.3,1.4),p:rnd(0,6.28)}));
- const blue=[67,166,255],red=[255,75,133],violet=[171,103,255],white=[238,248,255];let t0=0,last=0,off=false,parts=[];
+ const sp=$("#splash"),cv=$("#sp");if(!sp||!cv)return;
+ const c=cv.getContext("2d");if(!c)return;
+ sp.classList.remove("off");document.documentElement.classList.remove("open");
+ const d=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
+ cv.width=Math.round(W*d);cv.height=Math.round(H*d);
+ const cx=W*.5,cy=H*.44,rnd=(a,b)=>a+Math.random()*(b-a);
+ const stars=Array.from({length:190},()=>({x:Math.random()*W,y:Math.random()*H,z:rnd(.4,1.5),p:rnd(0,Math.PI*2)}));
+ const dust=Array.from({length:95},()=>({a:rnd(0,Math.PI*2),r:rnd(40,Math.max(W,H)*.72),v:rnd(.12,.55),s:rnd(.5,2.1)}));
+ let start=0,last=0,off=false,burst=0,raf=0;
+ const blue=[93,160,255],violet=[167,117,255],white=[233,241,255];
  const rgba=(v,a)=>"rgba("+v[0]+","+v[1]+","+v[2]+","+Math.max(0,Math.min(1,a))+")";
- function glow(x,y,r,col,a){const g=c.createRadialGradient(x,y,0,x,y,Math.max(1,r));g.addColorStop(0,rgba(white,a));g.addColorStop(.22,rgba(col,a*.95));g.addColorStop(1,rgba(col,0));c.fillStyle=g;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fill()}
- function bolt(x1,y1,x2,y2,col,a,w){const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len;c.beginPath();c.moveTo(x1,y1);for(let i=1;i<9;i++){const f=i/9,j=rnd(-1,1)*len*.1;c.lineTo(x1+dx*f+nx*j,y1+dy*f+ny*j)}c.lineTo(x2,y2);c.strokeStyle=rgba(col,a*.4);c.lineWidth=w*4;c.stroke();c.strokeStyle=rgba(white,a);c.lineWidth=w;c.stroke()}
- function orb(x,y,r,col,phase){glow(x,y,r*3,col,.85);glow(x,y,r*1.2,col,.95);c.save();c.translate(x,y);c.rotate(phase);c.strokeStyle=rgba(col,.9);c.lineWidth=2*k;for(let j=0;j<3;j++){c.beginPath();c.ellipse(0,0,r*(1.25+j*.18),r*(.48+j*.09),j*1.05,phase+j*1.7,phase+j*1.7+4.1);c.stroke()}c.fillStyle="#fff";c.shadowColor=rgba(col,1);c.shadowBlur=24*k;c.beginPath();c.arc(0,0,r*.28,0,Math.PI*2);c.fill();c.restore()}
- function frame(now){if(!t0){t0=now;last=now}const t=(now-t0)/1000,dt=Math.min(.04,(now-last)/1000);last=now;
- c.setTransform(d,0,0,d,0,0);c.globalCompositeOperation="source-over";c.fillStyle="#030713";c.fillRect(0,0,W,H);
- const bg=c.createRadialGradient(cx,cy,10,cx,cy,Math.max(W,H)*.72);bg.addColorStop(0,"#172c58");bg.addColorStop(.55,"#09142c");bg.addColorStop(1,"#02050d");c.fillStyle=bg;c.fillRect(0,0,W,H);
- stars.forEach(s=>{const tw=.35+.65*Math.abs(Math.sin(t*1.7+s.p));c.fillStyle="rgba(190,220,255,"+(tw*.8)+")";c.fillRect((s.x-t*8*s.z+W*2)%W,s.y,1.2*s.z,1.2*s.z)});
- c.globalCompositeOperation="lighter";const p=Math.min(1,t/1.65),ease=p*p*(3-2*p),spread=Math.max(0,1-ease),bx=cx-(W*.34+10)*spread,rx=cx+(W*.34+10)*spread,oy=cy-8;
- if(t<1.7){orb(bx,oy,(25+18*ease)*k,blue,t*2.4);orb(rx,oy,(25+18*ease)*k,red,-t*2.6);for(let i=0;i<5;i++){const a=t*2+i*1.256;bolt(bx+Math.cos(a)*30*k,oy+Math.sin(a)*30*k,rx+Math.cos(a+1)*30*k,oy+Math.sin(a+1)*30*k,violet,.25+.45*ease,1.2*k)}}
- const merge=Math.max(0,Math.min(1,(t-1.15)/.85));if(merge>0){const r=(24+60*merge)*k;glow(cx,cy,r*5,violet,.7);orb(cx,cy,r,violet,t*3.8);for(let i=0;i<9;i++){const a=t*2.5+i*Math.PI*2/9,rr=(95+20*Math.sin(t*4+i))*k;bolt(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr,cx+Math.cos(a+1.1)*r,cy+Math.sin(a+1.1)*r,i%2?blue:red,.35+.5*merge,1.5*k)}}
- if(t>1.8&&t<2.55){const q=(t-1.8)/.75;for(let i=0;i<3;i++){c.strokeStyle=rgba(i===1?white:violet,(1-q)*.9);c.lineWidth=(3-i)*k;c.beginPath();c.arc(cx,cy,(65+q*170+i*16)*k,0,Math.PI*2);c.stroke()}glow(cx,cy,(90+q*110)*k,white,.8)}
- if(t>=2.55){const q=t-2.55,fade=Math.max(0,1-q/1.15),len=Math.min(W*1.5,q*W*1.65);glow(cx,cy,Math.max(8,75*(1-q*.8))*k,violet,fade);c.save();c.translate(cx,cy);c.rotate(-.08);const beam=c.createLinearGradient(0,0,len,0);beam.addColorStop(0,"rgba(255,255,255,.95)");beam.addColorStop(.12,"rgba(188,130,255,.95)");beam.addColorStop(.45,"rgba(94,153,255,.72)");beam.addColorStop(1,"rgba(80,140,255,0)");c.fillStyle=beam;c.shadowColor="#9b70ff";c.shadowBlur=35*k;c.beginPath();c.moveTo(0,-24*k);c.lineTo(len,-7*k);c.lineTo(len,7*k);c.lineTo(0,24*k);c.closePath();c.fill();c.restore();for(let i=0;i<24;i++){const a=i*Math.PI*2/24+q*2,rr=45+q*260;bolt(cx+Math.cos(a)*rr*k,cy+Math.sin(a)*rr*k,cx+Math.cos(a)*rr*1.8*k,cy+Math.sin(a)*rr*1.8*k,i%2?blue:red,fade*.65,1.1*k)}
-  if(!parts.length){for(let i=0;i<100;i++){const a=rnd(0,Math.PI*2),v=rnd(100,850)*k;parts.push({x:cx,y:cy,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:rnd(.4,1.1),m:1,col:i%3?violet:blue})}}}
- parts=parts.filter(o=>o.l>0);parts.forEach(o=>{o.x+=o.vx*dt;o.y+=o.vy*dt;o.vx*=.96;o.vy*=.96;o.l-=dt;c.fillStyle=rgba(o.col,o.l/o.m);c.fillRect(o.x,o.y,2*k,2*k)});
- c.globalCompositeOperation="source-over";if(t>2.45&&t<2.7){const a=(t-2.45)/.25;c.fillStyle="rgba(230,240,255,"+(Math.sin(a*Math.PI)*.65)+")";c.fillRect(0,0,W,H)}
- if(t>2.1&&t<3.25){c.textAlign="center";c.font="900 "+Math.max(20,Math.min(34,W*.075))+"px serif";c.fillStyle="rgba(235,240,255,"+Math.min(1,(t-2.1)*2)+")";c.shadowColor="#a77aff";c.shadowBlur=22;c.fillText("虛式・茈",cx,H*.78);c.shadowBlur=0}
- if(t>2.85&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
- if(t>3.65){sp.remove();document.documentElement.classList.remove("open");return}requestAnimationFrame(frame)}requestAnimationFrame(frame)
+ function glow(x,y,r,col,alpha){const g=c.createRadialGradient(x,y,0,x,y,Math.max(1,r));g.addColorStop(0,rgba(white,alpha));g.addColorStop(.24,rgba(col,alpha*.86));g.addColorStop(1,rgba(col,0));c.fillStyle=g;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fill()}
+ function frame(now){
+  if(!start){start=now;last=now}
+  const t=(now-start)/1000,dt=Math.min(.04,(now-last)/1000);last=now;
+  c.setTransform(d,0,0,d,0,0);c.globalCompositeOperation="source-over";
+  const bg=c.createRadialGradient(cx,cy,10,cx,cy,Math.max(W,H)*.78);
+  bg.addColorStop(0,"#20275c");bg.addColorStop(.38,"#11183d");bg.addColorStop(.78,"#070a20");bg.addColorStop(1,"#02030b");
+  c.fillStyle=bg;c.fillRect(0,0,W,H);
+  c.globalCompositeOperation="lighter";
+  // 無量空處：無盡同心空間、旋轉軌道與資訊流
+  const reveal=Math.min(1,t/.9),pulse=1+.045*Math.sin(t*2.1);
+  for(let i=0;i<11;i++){
+   const rr=(42+i*i*13+((t*9+i*19)%19))*pulse;
+   c.save();c.translate(cx,cy);c.rotate(t*(i%2?-.035:.028)+i*.17);
+   c.beginPath();c.ellipse(0,0,rr*(1.08+i*.006),rr*(.55+i*.012),0,0,Math.PI*2);
+   c.strokeStyle=rgba(i%3===0?violet:blue,(.07+i*.012)*reveal);c.lineWidth=(i%3===0?2.1:1)*d;c.stroke();
+   c.restore();
+  }
+  for(let i=0;i<6;i++){
+   const a=t*.13+i*Math.PI/3,rr=Math.min(W,H)*(.19+i*.075);
+   c.beginPath();c.ellipse(cx,cy,rr*1.55,rr*.58,a,0,Math.PI*2);
+   c.strokeStyle=rgba(i%2?blue:violet,.11);c.lineWidth=1.2*d;c.stroke();
+  }
+  // Dense, drifting knowledge-like stars
+  stars.forEach(o=>{const x=(o.x+Math.sin(t*.22+o.p)*15+W)%W,y=(o.y-t*o.z*9+H*3)%(H);const alpha=(.2+.65*Math.abs(Math.sin(t*1.3+o.p)))*reveal;c.fillStyle=rgba(white,alpha);c.fillRect(x,y,o.z*d*.8,o.z*d*.8)});
+  dust.forEach(o=>{o.a+=o.v*dt*.11;const rr=o.r*(.88+.12*Math.sin(t*.6+o.a));const x=cx+Math.cos(o.a+t*.08)*rr,y=cy+Math.sin(o.a+t*.08)*rr*.64;glow(x,y,o.s*5,blue,.25)});
+  // Center of the domain slowly focuses behind Gojo
+  glow(cx,cy,Math.min(W,H)*(.32+.025*Math.sin(t*1.8)),violet,.24);
+  if(t>1.35&&t<3.85){
+   const q=(t-1.35)/2.5;
+   for(let i=0;i<5;i++){const a=t*.9+i*Math.PI*2/5,rr=(95+q*100)*Math.min(1.1,W/430);c.beginPath();c.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.6,5*d+q*7*d,0,Math.PI*2);c.fillStyle=rgba(i%2?blue:violet,.55);c.fill()}
+  }
+  // 茈的蓄力、脈衝、遠射光柱
+  if(t>2.7&&t<4.7){const q=Math.min(1,(t-2.7)/1.1),radius=(18+q*75)*Math.min(1.2,W/430);glow(cx+W*.24,cy+H*.06,radius*3,violet,.55);c.strokeStyle=rgba(white,.8);c.lineWidth=2*d;c.beginPath();c.arc(cx+W*.24,cy+H*.06,radius*(1.2+.1*Math.sin(t*9)),0,Math.PI*2);c.stroke()}
+  if(t>=4.05){
+   const q=t-4.05,fade=Math.max(0,1-q/1.05),len=Math.min(W*1.6,q*W*1.9);
+   c.save();c.translate(cx+W*.2,cy+H*.06);c.rotate(-.18);
+   const beam=c.createLinearGradient(0,0,len,0);beam.addColorStop(0,"rgba(255,255,255,.95)");beam.addColorStop(.14,"rgba(212,180,255,.9)");beam.addColorStop(.5,"rgba(106,143,255,.55)");beam.addColorStop(1,"rgba(90,120,255,0)");
+   c.fillStyle=beam;c.shadowColor="#a987ff";c.shadowBlur=35*d;c.beginPath();c.moveTo(0,-17*d);c.lineTo(len,-4*d);c.lineTo(len,4*d);c.lineTo(0,17*d);c.closePath();c.fill();c.restore();
+   if(!burst){burst=1;glow(cx,cy,Math.max(W,H)*.55,white,.9)}
+   if(q<.16){c.fillStyle="rgba(230,238,255,"+((1-q/.16)*.72)+")";c.fillRect(0,0,W,H)}
+   c.globalAlpha=fade;
+   for(let i=0;i<20;i++){const a=i*Math.PI/10+t*1.5,rr=(55+q*180)*d;c.strokeStyle=rgba(i%2?blue:violet,.5);c.lineWidth=1.5*d;c.beginPath();c.moveTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr);c.lineTo(cx+Math.cos(a)*rr*2,cy+Math.sin(a)*rr*2);c.stroke()}
+   c.globalAlpha=1;
+  }
+  if(t>5.65&&!off){off=true;sp.classList.add("off");document.documentElement.classList.add("open")}
+  if(t>6.45){sp.remove();document.documentElement.classList.remove("open");return}
+  raf=requestAnimationFrame(frame);
+ }
+ if(raf)cancelAnimationFrame(raf);
+ raf=requestAnimationFrame(frame);
 }
-
 /* ---------- 安裝到手機 ---------- */
 const standalone=()=>matchMedia("(display-mode:standalone)").matches||navigator.standalone===true;
 const installable=()=>/^https?:/.test(location.protocol)&&(location.hostname.endsWith("github.io")||location.hostname==="localhost")&&!standalone();
@@ -895,7 +1021,7 @@ document.addEventListener("pointerdown",e=>{if(!fxOn())return;
  const add=(el,ms)=>{el.style.left=e.clientX+"px";el.style.top=e.clientY+"px";document.body.appendChild(el);setTimeout(()=>el.remove(),ms)};
  if(ST.style==="jjk"){const r=document.createElement("i");r.className="tap";add(r,700);
   for(let k=0;k<7;k++){const a=k/7*6.28+Math.random(),dd=26+Math.random()*26,p=document.createElement("b");p.className="sp";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
- else if(ST.style==="gojo"){const r=document.createElement("i");r.className="gojo-tap";add(r,720);for(let k=0;k<10;k++){const a=k/10*6.28+Math.random()*.25,dd=34+Math.random()*42,p=document.createElement("b");p.className="gojo-spark";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,680)}}
+ else if(ST.style==="gojo"){const r=document.createElement("i");r.className="gojo-tap";add(r,900);for(let k=0;k<14;k++){const a=k/14*6.283+Math.random()*.12,dd=42+Math.random()*76,p=document.createElement("b");p.className="gojo-spark";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,820)}}
  else{const c=document.createElement("i");c.className="cut";c.style.setProperty("--r",(-65+Math.random()*50)+"deg");add(c,520);
   for(let k=0;k<4;k++){const a=k/4*6.28+Math.random()*.8,dd=30+Math.random()*26,p=document.createElement("b");p.className="sk";p.style.setProperty("--dx",Math.cos(a)*dd+"px");p.style.setProperty("--dy",Math.sin(a)*dd+"px");add(p,650)}}
 },{passive:true});
