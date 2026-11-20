@@ -384,6 +384,13 @@ html[data-style="gojo"] .card,html[data-style="gojo"] .row,html[data-style="gojo
 .gojo-click:after{inset:-15px;border-color:rgba(185,126,255,.8);animation-delay:.06s}
 @keyframes gojoClick{0%{opacity:1;transform:translate(-50%,-50%) scale(.3)}45%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(2.4)}}
 @keyframes gojoClickRing{0%{opacity:.95;transform:scale(.25)}100%{opacity:0;transform:scale(4.2)}}
+
+/* Gojo visibility hard-fix: do not depend on the external WebP to show the character. */
+html[data-style="gojo"] #splash{animation:none!important;visibility:visible!important;opacity:1!important}
+html[data-style="gojo"] #splash #gojo-character{display:block!important;visibility:visible!important;opacity:1!important;z-index:4!important}
+html[data-style="gojo"] #splash #gojo-character svg{display:block!important;width:100%!important;height:100%!important}
+html[data-style="gojo"] #splash #gojo-hero{display:none!important}
+html[data-style="gojo"] #splash #gojo-fallback{display:none!important}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="shk" viewBox="0 0 24 24"><path d="M12 1l3.1 7.9L23 12l-7.9 3.1L12 23l-3.1-7.9L1 12l7.9-3.1z" fill="currentColor"/><circle cx="12" cy="12" r="2.4" fill="var(--sheet)"/></symbol></svg>
