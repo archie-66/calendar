@@ -329,7 +329,7 @@ html[data-style="gojo"] #splash{background:radial-gradient(ellipse at 50% 48%,#1
 html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{opacity:0}
 html[data-style="gojo"] #splash #sp{position:absolute;inset:0;width:100%;height:100%;z-index:2}
 html[data-style="gojo"] #splash.off{transition:opacity .7s}
-html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{position:relative;overflow:hidden;transition:transform .18s,filter .18s,box-shadow .18s}
+html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{overflow:hidden;transition:transform .18s,filter .18s,box-shadow .18s}
 html[data-style="gojo"] .pri:active,html[data-style="gojo"] .fab:active{transform:scale(.96);filter:brightness(1.35);box-shadow:0 0 28px rgba(110,170,255,.8),0 0 42px rgba(190,90,255,.45)}
 .gojo-tap{position:fixed;width:18px;height:18px;margin:-9px;border:2px solid #a9d7ff;border-radius:50%;pointer-events:none;z-index:95;box-shadow:0 0 14px #64b5ff,0 0 28px #9b65ff;animation:gojoTap .72s cubic-bezier(.12,.7,.2,1) forwards}
 .gojo-spark{position:fixed;width:6px;height:6px;margin:-3px;border-radius:50%;background:#e8f7ff;pointer-events:none;z-index:95;box-shadow:0 0 10px #65baff,0 0 18px #a66cff;animation:gojoSpark .65s ease-out forwards}
@@ -764,7 +764,7 @@ function openSettings(){
 $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=openHistory;$("#b-set").onclick=openSettings;
 
 /* ---------- style ---------- */
-function setStyle(s){ST.style=s;saveST();applyStyle()}
+function setStyle(s){ST.style=s;saveST();applyStyle();if(s==="gojo"&&!reduceMo()){let sp=$("#splash");if(!sp){sp=document.createElement("div");sp.id="splash";sp.innerHTML='<canvas id="sp"></canvas>';document.body.appendChild(sp)}else sp.classList.remove("off");gojoIntro()}}
 function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
 
 /* ---------- 咒術開場：雙能量球融合爆開 ---------- */
