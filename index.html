@@ -904,6 +904,8 @@ setInterval(tick,30000);setInterval(()=>{if(!document.hidden&&/^https?:/.test(lo
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAll();tick();if(/^https?:/.test(location.protocol)&&Date.now()-lastChk>5*60e3)checkUpdate(false)}});
 
 applyStyle();
+/* 開場動畫保險：即使動畫繪製中斷，也不能讓啟動畫面遮住行事曆 */
+setTimeout(()=>{const sp=$("#splash");if(sp&&sp.isConnected){sp.classList.add("off");setTimeout(()=>{if(sp.isConnected)sp.remove()},500)}},6500);
 if((ST.style==="jjk"||ST.style==="gojo")&&!reduceMo())jjkIntro(ST.style==="gojo"?"茈":"呪");else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
