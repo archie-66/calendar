@@ -799,7 +799,7 @@ function openSettings(){
 $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=openHistory;$("#b-set").onclick=openSettings;
 
 /* ---------- style ---------- */
-function setStyle(s){ST.style=s;saveST();applyStyle();if(s==="gojo"){let sp=$("#splash");if(!sp){sp=document.createElement("div");sp.id="splash";sp.innerHTML='<canvas id="sp"></canvas>';document.body.appendChild(sp)}sp.classList.remove("off");document.documentElement.classList.remove("open");gojoIntro()}}
+function setStyle(s){ST.style=s;saveST();applyStyle();if(s==="gojo"){let sp=$("#splash");if(!sp){sp=document.createElement("div");sp.id="splash";document.body.appendChild(sp)}if(!sp.querySelector("#gojo-hero")){sp.innerHTML='<img id="gojo-hero" src="assets/gojo.webp" alt="五條悟白髮、黑色眼罩，手中凝聚紫色能量的插畫" decoding="async"><div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div><canvas id="sp"></canvas>'}else if(!sp.querySelector("#sp")){const cv=document.createElement("canvas");cv.id="sp";sp.appendChild(cv)}sp.classList.remove("off");document.documentElement.classList.remove("open");gojoIntro()}}
 function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
 
 /* ---------- 咒術開場：雙能量球融合爆開 ---------- */
