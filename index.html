@@ -325,16 +325,19 @@ label,.fl{display:block;color:var(--mut);font-size:13px}label input,label select
 html[data-style="gojo"] body{background:radial-gradient(ellipse at 50% -15%,#183c70 0%,#09162e 42%,#050914 100%)}
 html[data-style="gojo"] body::before{background:radial-gradient(ellipse at 18% 18%,rgba(42,143,255,.24),transparent 38%),radial-gradient(ellipse at 84% 78%,rgba(176,55,255,.22),transparent 40%),repeating-radial-gradient(circle at 50% 50%,transparent 0 58px,rgba(132,176,255,.035) 59px 60px)}
 html[data-style="gojo"] body::after{content:"無下限";right:-20px;bottom:74px;font:900 clamp(100px,22vw,230px)/1 var(--hf);color:#8bc4ff;opacity:.055;text-shadow:0 0 45px #8b72ff}
-html[data-style="gojo"] #splash{background:radial-gradient(ellipse at 50% 48%,#172b55 0%,#080f24 48%,#02050d 100%);animation:none;overflow:hidden}
+html[data-style="gojo"] #splash{display:flex!important;visibility:visible!important;opacity:1;pointer-events:auto;background:radial-gradient(ellipse at 50% 48%,#172b55 0%,#080f24 48%,#02050d 100%);animation:none!important;overflow:hidden}
 html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{opacity:0}
-html[data-style="gojo"] #splash #sp{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
 html[data-style="gojo"] #splash.off{transition:opacity .7s}
 html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{overflow:hidden;transition:transform .18s,filter .18s,box-shadow .18s}
 html[data-style="gojo"] .pri:active,html[data-style="gojo"] .fab:active{transform:scale(.96);filter:brightness(1.35);box-shadow:0 0 28px rgba(110,170,255,.8),0 0 42px rgba(190,90,255,.45)}
-.gojo-tap{position:fixed;width:18px;height:18px;margin:-9px;border:2px solid #a9d7ff;border-radius:50%;pointer-events:none;z-index:95;box-shadow:0 0 14px #64b5ff,0 0 28px #9b65ff;animation:gojoTap .72s cubic-bezier(.12,.7,.2,1) forwards}
-.gojo-spark{position:fixed;width:6px;height:6px;margin:-3px;border-radius:50%;background:#e8f7ff;pointer-events:none;z-index:95;box-shadow:0 0 10px #65baff,0 0 18px #a66cff;animation:gojoSpark .65s ease-out forwards}
-@keyframes gojoTap{to{transform:scale(7);opacity:0;border-color:#e6aaff}}
-@keyframes gojoSpark{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.1)}}
+.gojo-tap{position:fixed;width:22px;height:22px;margin:-11px;border:2px solid #e8f7ff;border-radius:50%;pointer-events:none;z-index:95;box-shadow:0 0 10px #fff,0 0 24px #62b9ff,0 0 42px #9b65ff;animation:gojoTap .78s cubic-bezier(.12,.7,.2,1) forwards}
+.gojo-tap:before,.gojo-tap:after{content:"";position:absolute;inset:-9px;border:1px solid rgba(121,190,255,.9);border-radius:50%;transform:scale(.35);animation:gojoOrbit .78s ease-out forwards}
+.gojo-tap:after{inset:-17px;border-color:rgba(205,137,255,.8);border-style:dashed;animation:gojoOrbit .95s ease-out forwards reverse}
+.gojo-spark{position:fixed;width:7px;height:7px;margin:-3.5px;background:linear-gradient(135deg,#fff 0%,#9de7ff 42%,#b38aff 100%);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);pointer-events:none;z-index:95;filter:drop-shadow(0 0 5px #75caff);animation:gojoSpark .78s cubic-bezier(.12,.7,.2,1) forwards}
+@keyframes gojoTap{35%{transform:scale(1.5);opacity:1}to{transform:scale(4.5);opacity:0;border-color:#e6aaff}}
+@keyframes gojoOrbit{to{transform:scale(3.4) rotate(100deg);opacity:0}}
+@keyframes gojoSpark{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.05) rotate(160deg)}}
 @media(prefers-reduced-motion:reduce){html[data-style="gojo"] .gojo-tap,html[data-style="gojo"] .gojo-spark{animation-duration:.01ms!important}}
 </style></head>
 <body>
@@ -764,7 +767,7 @@ function openSettings(){
 $("#b-search").onclick=$("#b-search2").onclick=openSearch;$("#b-hist").onclick=openHistory;$("#b-set").onclick=openSettings;
 
 /* ---------- style ---------- */
-function setStyle(s){ST.style=s;saveST();applyStyle();if(s==="gojo"&&!reduceMo()){let sp=$("#splash");if(!sp){sp=document.createElement("div");sp.id="splash";sp.innerHTML='<canvas id="sp"></canvas>';document.body.appendChild(sp)}else sp.classList.remove("off");gojoIntro()}}
+function setStyle(s){ST.style=s;saveST();applyStyle();if(s==="gojo"){let sp=$("#splash");if(!sp){sp=document.createElement("div");sp.id="splash";sp.innerHTML='<canvas id="sp"></canvas>';document.body.appendChild(sp)}sp.classList.remove("off");document.documentElement.classList.remove("open");gojoIntro()}}
 function applyStyle(){document.documentElement.dataset.style=ST.style;$("#tc").content=ST.style==="jjk"?"#0a0a15":matchMedia("(prefers-color-scheme:dark)").matches?"#131418":"#f4f1ea";fxStart();renderAll()}
 
 /* ---------- 咒術開場：雙能量球融合爆開 ---------- */
@@ -862,7 +865,7 @@ async function installApp(){
 
 /* ---------- 風格特效（咒術／忍者）---------- */
 const reduceMo=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
-const fxOn=()=>(ST.style==="jjk"||ST.style==="ninja"||ST.style==="gojo")&&!reduceMo();
+const fxOn=()=>(ST.style==="jjk"||ST.style==="ninja"||ST.style==="gojo")&&(!reduceMo()||ST.style==="gojo");
 const fx=document.createElement("canvas");fx.id="fx";document.body.prepend(fx);
 const fc=fx.getContext("2d");let fW=0,fH=0,dots=[],slash=null,thr=null,fxRun=false,fxT=0;
 function fxSize(){const d=Math.min(2,devicePixelRatio||1);fW=fx.width=innerWidth*d;fH=fx.height=innerHeight*d;fx._d=d}
@@ -942,7 +945,7 @@ setInterval(tick,30000);setInterval(()=>{if(!document.hidden&&/^https?:/.test(lo
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderAll();tick();if(/^https?:/.test(location.protocol)&&Date.now()-lastChk>5*60e3)checkUpdate(false)}});
 
 applyStyle();
-if(ST.style==="jjk"&&!reduceMo())jjkIntro();else if(ST.style==="gojo"&&!reduceMo())gojoIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
+if(ST.style==="jjk"&&!reduceMo())jjkIntro();else if(ST.style==="gojo")gojoIntro();else setTimeout(()=>{const sp=$("#splash");if(sp){sp.classList.add("off");setTimeout(()=>sp.remove(),500)}},ST.style==="ninja"&&!reduceMo()?2700:1000);
 requestAnimationFrame(()=>{snap(P,1);center()});
 setTimeout(()=>{if(!ST.onboard)showOnboard()},400);
 if(ST.onboard&&ST.pe&&navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
