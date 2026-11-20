@@ -141,7 +141,7 @@ radial-gradient(ellipse at 50% 50%,#17234b 0%,#0b1028 45%,#040611 78%);backgroun
 html[data-style="gojo"] body::after{content:"無量空處";position:fixed;right:-.04em;bottom:58px;font:900 clamp(56px,13vw,160px)/1 var(--hf);letter-spacing:.16em;color:#a6b8ff;opacity:.055;pointer-events:none;z-index:0;writing-mode:vertical-rl;text-shadow:0 0 36px #6f78ff}
 @keyframes domainDrift{0%{filter:hue-rotate(0deg) brightness(.85);background-position:0 0}100%{filter:hue-rotate(22deg) brightness(1.15);background-position:2% -1%}}
 
-html[data-style="gojo"] body::after{content:"茈";position:fixed;right:-10px;bottom:68px;font:900 230px/1 var(--hf);color:#9b8aff;opacity:.07;pointer-events:none;z-index:0;animation:gojoPulse 4s ease-in-out infinite}
+/* The domain watermark is defined once by the Unlimited Void rule above. */
 @keyframes gojoPulse{50%{opacity:.14;text-shadow:0 0 35px #7d8dff}}
 html[data-style="gojo"] button,html[data-style="gojo"] .ib,html[data-style="gojo"] .ck,html[data-style="gojo"] .seg,html[data-style="gojo"] .day b,html[data-style="gojo"] .tlh .dh b,html[data-style="gojo"] input,html[data-style="gojo"] select,html[data-style="gojo"] textarea,html[data-style="gojo"] #ind{border-radius:8px}
 html[data-style="gojo"] .pri,html[data-style="gojo"] .fab{background:linear-gradient(120deg,#398cff 0%,#8067ff 52%,#e94d8b 100%);border-color:transparent;box-shadow:0 0 20px rgba(93,139,255,.42)}
@@ -350,6 +350,7 @@ html[data-style="gojo"] .pri:active,html[data-style="gojo"] .fab:active{transfor
 @media(prefers-reduced-motion:reduce){html[data-style="gojo"] .gojo-tap,html[data-style="gojo"] .gojo-spark{animation-duration:.01ms!important}}
 
 /* Gojo / Unlimited Void interface layer */
+#gojo-hero,#gojo-copy{display:none}
 html[data-style="gojo"] #fx{display:block}
 html[data-style="gojo"] .card,html[data-style="gojo"] .row,html[data-style="gojo"] .sheet,html[data-style="gojo"] .tabs,html[data-style="gojo"] .banner,html[data-style="gojo"] .nt{background:linear-gradient(145deg,rgba(22,31,72,.84),rgba(7,12,34,.91));border-color:rgba(143,164,255,.22);box-shadow:inset 0 1px 0 rgba(221,232,255,.07),0 12px 34px -22px rgba(102,120,255,.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 html[data-style="gojo"] .hd h1{text-shadow:0 0 20px rgba(119,149,255,.6);letter-spacing:.08em}
@@ -359,10 +360,12 @@ html[data-style="gojo"] .fab{right:20px!important;left:auto!important;bottom:cal
 html[data-style="gojo"] #splash{display:flex!important;visibility:visible!important;opacity:1;pointer-events:auto;background:radial-gradient(ellipse at 50% 50%,#1b285e 0%,#0b102c 52%,#02040c 100%);animation:none!important;overflow:hidden}
 html[data-style="gojo"] #splash .nin,html[data-style="gojo"] #splash .ldr,html[data-style="gojo"] #splash>b,html[data-style="gojo"] #splash .sm{display:none!important}
 html[data-style="gojo"] #splash #sp{display:block!important;position:absolute;inset:0;width:100%;height:100%;z-index:2}
-html[data-style="gojo"] #gojo-hero{display:block!important;position:absolute;z-index:3;left:50%;top:47%;width:min(96vw,680px);height:min(84vh,760px);transform:translate(-50%,-50%);overflow:visible;filter:drop-shadow(0 0 24px rgba(104,143,255,.48));opacity:0;animation:gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards}
+html[data-style="gojo"] #gojo-hero{display:block!important;position:absolute;z-index:3;left:50%;top:45%;width:min(96vw,690px);height:auto;max-height:76vh;object-fit:contain;transform:translate(-50%,-50%);overflow:visible;filter:drop-shadow(0 0 24px rgba(104,143,255,.48));opacity:0;animation:gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards}
 html[data-style="gojo"] #gojo-copy{display:flex!important;position:absolute;z-index:4;left:0;right:0;bottom:max(5vh,30px);align-items:center;flex-direction:column;gap:5px;text-align:center;pointer-events:none;opacity:0;animation:gojoWords .75s ease-out 1.05s forwards}
 html[data-style="gojo"] #gojo-copy b{font:800 clamp(18px,4vw,28px)/1.2 var(--hf);letter-spacing:.38em;color:#b9d4ff;text-shadow:0 0 14px #668dff,0 0 32px #886bff}
 html[data-style="gojo"] #gojo-copy strong{font:900 clamp(28px,7vw,52px)/1.2 var(--hf);letter-spacing:.2em;color:#fff;text-shadow:0 0 16px #9db8ff,0 0 40px #876bff}
+html[data-style="gojo"] #gojo-copy i{font:700 clamp(15px,3.4vw,21px)/1.2 var(--hf);font-style:normal;letter-spacing:.3em;color:#d8c9ff;text-shadow:0 0 12px #a47aff;opacity:0;animation:gojoPurple .7s ease-out 3.8s forwards}
+@keyframes gojoPurple{from{opacity:0;transform:translateY(12px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
 @keyframes gojoRise{0%{opacity:0;transform:translate(-50%,8%) scale(.78);filter:drop-shadow(0 0 0 transparent) blur(12px)}65%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:drop-shadow(0 0 24px rgba(104,143,255,.48))}}
 @keyframes gojoWords{from{opacity:0;transform:translateY(18px);letter-spacing:.8em}to{opacity:1;transform:none;letter-spacing:normal}}
 html[data-style="gojo"] #splash.off{opacity:0;transition:opacity .75s ease}
@@ -430,7 +433,7 @@ html[data-style="gojo"] .fab{z-index:5}
 <!-- wrist / glove shadows and jacket seam -->
 <path d="M163 695Q180 587 218 507L255 490 242 700M398 475L434 513 478 479" fill="none" stroke="#586da7" stroke-width="4" opacity=".55"/>
 </svg>
-<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong></div><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
+<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div><canvas id="sp"></canvas><div class="ldr"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b>Archie</b></div>
 <div id="upd" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><b class="big">有新版本可以更新</b><p class="mut" id="upd-t"></p><div class="two"><button id="upd-no">稍後</button><button class="pri" id="upd-go">立即更新</button></div></div></div>
 <div id="busy" class="ovl hide"><div class="card mc"><div class="ldr s"><svg class="ln"><use href="#shk"/></svg><div class="lc"><i></i><i></i><i></i></div><div class="lj"></div></div><div id="busy-t"></div></div></div>
 <div id="app">
