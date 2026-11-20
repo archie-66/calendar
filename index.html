@@ -858,9 +858,19 @@ function jjkIntro(){
 
 /* 五條悟開場：領域展開「無量空處」＋角色出場＋茈光爆 */
 function gojoIntro(){
- const sp=$("#splash"),cv=$("#sp");if(!sp||!cv)return;
- const c=cv.getContext("2d");if(!c)return;
+ let sp=$("#splash");
+ if(!sp){sp=document.createElement("div");sp.id="splash";document.body.appendChild(sp)}
+ if(!sp.querySelector("#gojo-hero"))sp.insertAdjacentHTML("afterbegin",'<img id="gojo-hero" src="assets/gojo.webp" alt="五條悟白髮、黑色眼罩，手中凝聚紫色能量的插畫" decoding="async">');
+ if(!sp.querySelector("#gojo-copy"))sp.insertAdjacentHTML("beforeend",'<div id="gojo-copy" aria-hidden="true"><b>領 域 展 開</b><strong>無量空處</strong><i>虛式・茈</i></div>');
+ let cv=$("#sp");
+ if(!cv){cv=document.createElement("canvas");cv.id="sp";sp.appendChild(cv)}
+ const hero=$("#gojo-hero"),copy=$("#gojo-copy");
  sp.classList.remove("off");document.documentElement.classList.remove("open");
+ Object.assign(sp.style,{display:"flex",visibility:"visible",opacity:"1",pointerEvents:"auto",zIndex:"80",animation:"none"});
+ Object.assign(cv.style,{display:"block",position:"absolute",inset:"0",width:"100%",height:"100%",zIndex:"2"});
+ if(hero){Object.assign(hero.style,{display:"block",visibility:"visible",zIndex:"3"});hero.style.animation="none";void hero.offsetWidth;hero.style.animation="gojoRise 1.1s cubic-bezier(.16,.82,.18,1) .22s forwards"}
+ if(copy){Object.assign(copy.style,{display:"flex",visibility:"visible",zIndex:"4"});copy.style.animation="none";void copy.offsetWidth;copy.style.animation="gojoWords .75s ease-out 1.05s forwards"}
+ const c=cv.getContext("2d");if(!c){setTimeout(()=>{sp.classList.add("off");setTimeout(()=>sp.remove(),800)},6000);return}
  const d=Math.min(2,devicePixelRatio||1),W=innerWidth,H=innerHeight;
  cv.width=Math.round(W*d);cv.height=Math.round(H*d);
  const cx=W*.5,cy=H*.44,rnd=(a,b)=>a+Math.random()*(b-a);
